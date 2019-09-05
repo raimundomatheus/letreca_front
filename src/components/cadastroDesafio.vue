@@ -2,6 +2,10 @@
   <!--eslint-disable-->
   <div class="container">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
             <div class="container-d-5">
               <div class="row">
                 <div class="col-sm">
@@ -21,7 +25,7 @@
                   <div class="col-sm" >
                       <img src="../_imagens/letreca/select-contexto.jpg" class="img-fluid n" alt="Imagem responsiva">
                       <select class="sele-contexto" name="selecao-contexto" v-model="bola" placeholder="Contexto">
-                          <option value="" disabled selected>Selecione...</option>
+                          <option value="" disabled selected>Selecione o contexto</option>
                           <option v-for="contexto in contextos" :key="contexto.id" v-bind:src="contexto.id"  v-bind:value="contexto.id" placeholder="Contexto">{{contexto.nome}}</option> 
                       </select>
                   </div>
@@ -38,33 +42,32 @@
                   <div class="row">
                     
 
-                    <div class="col-sm">
-                        <img src="../_imagens/letreca/audio-desafio.jpg" class="img-fluid img-audio-desafio" alt="Imagem responsiva">
-                        <!--<input class="inp-audio-desafio" type="file" name="audio_desafio">-->
-                        <input class="inp-audio-desafio" v-model="audio" type="text" required="required" name="audio_desafio" placeholder="Cole aqui a URL do áudio">
+                    <div class="control col-sm">
+                        <img src="../_imagens/letreca/audio-desafio.jpg" class="img-fluid audio_desafio" alt="Imagem responsiva" >
+
+                        <img :src="audioSrc" class="audio">
+                        <input class="file" type="file" id="file_audio" @change="uploadAudio" name="audio" accept="audio/*">
+                        <label @click="()=>brfra()" for="file_audio" style="top: 2.5rem; margin-bottom: 3rem;">Escolher áudio<h6 v-bind:value="audio.nome" style="color: #333; margin-top: 1rem; margin-bottom: 3rem; font-size: 12px">0 Arquivo </h6></label>
+                        
                     </div>
 
-                    <div id="editor" class="col-sm">
-                        <img src="../_imagens/letreca/img-desafio.jpg" class="img-fluid img-desafio" alt="Imagem responsiva" style="display:none">
-                        <!--<input class="inp-img-desafio" type="file" name="img_desafio">
-                        <input class="inp-img-desafio" v-model="imagem" type="file" required="required" name="img_desafio" placeholder="Cole aqui a URL da imagem">-->
-                        <input type="file" id="file" @change="uploadImagem" ame="photo" accept="image/*">
-                        <img :src="imageSrc" class="image">
-                        <label class="label_desafio" for="file">
-                          <i class="material-icons">
-                            add_photo_alternate
-                          </i>
-                          Escolher foto
-                        </label>
+                    <div class="control col-sm" id="editor">
+                        <img src="../_imagens/letreca/img-desafio.jpg" class="img-fluid img_desafio" alt="Imagem responsiva" >
+
+                        <img :src="imageSrc" class="image" />
+                        <input class="file" type="file" id="file" @change="uploadImagem" name="photo" accept="image/*" />
+                        <label class="bt1" @click="()=>brfr()" for="file" style="top: 2.5rem">Escolher foto<span>0 Arquivo </span></label>
                     </div>
+
                   </div>
               </div>
+              <br><br><br>
 
                     <!--<p @click="()=>ret()">
                       <input class="" type="submit" value="v-model">
                     </p>-->
               
-              <div class="container-d-4">
+              <div class="container-d-4" style="">
                 <div class="row">
                   <div class="col-sm">
                     <p @click="()=>buscar(desafios)">
@@ -81,7 +84,10 @@
 
 <script>
 /* eslint-disable */
-import axios from "axios";
+import axios from "axios"
+import jquery from "jquery"
+import $ from "jquery"
+import js from "jquery"
 
 /* eslint-disable */
 export default {
@@ -89,6 +95,7 @@ export default {
   data() {
     return {
       imageSrc: null,
+      audioSrc: null,
       bola: "",
       contextos: [],
       nome: "",
@@ -135,7 +142,33 @@ export default {
         this.imagem = reader.result.split(',')[1];
         console.log(this.imagem)
       }
+    },
+
+    uploadAudio: function(event){
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload =  ()=>{
+        this.audio = reader.result.split(',')[1];
+        console.log(this.audio)
+      }
+    },
+
+    brfra: function(){
+        $('#file_audio').change(function(a) {
+        var filename = a.target.files[0].name
+        console.log(filename);
+        $('h6').html(filename);
+    });
+    },
+
+    brfr: function(){
+        $('#file').change(function(e) {
+        var filename = e.target.files[0].name
+        console.log(filename);
+        $('span').html(filename);
+    });
     }
+
   },
   mounted(){
     this.listar();
@@ -157,6 +190,7 @@ export default {
 	border-radius: 1%;
 	box-shadow: 5px 5px;
 	background-color: #A8D500;
+  height: 650px;
 }
 
 .container-d-1{
@@ -271,7 +305,7 @@ export default {
 
 .n1{
 	position: relative;
-	top: 2%;
+	top: 12%;
 	border-radius: 50%;
 }
 
@@ -298,18 +332,18 @@ export default {
 	position: relative;
 	width: 80%;
 	left: 10.2%;
-	top: 2%;
+	top: 12%;
 }
 
 .img-desafio{
 	position: relative;
-	top: 2%;
+	top: 0%;
 	border-radius: 50%;
 }
 
 .img-audio-desafio{
 	position: relative;
-	top: 2%;
+	top: 0%;
 	border-radius: 50%;
 }
 
@@ -341,10 +375,10 @@ input[type="file"]{
   height: 2rem;
   width: 13rem;
   border-radius: 5px 5px 5px 5px;
-  background-color: #f5af09;
-  position: absolute;
+  background-color: #a8d500;
+  position: relative;
   margin: auto;
-  top: 1.6rem;
+  top: -1.5rem;
   bottom: 0;
   left: 0;
   right: 0;
@@ -359,16 +393,16 @@ input[type="file"]{
   background-image: url(../_imagens/letreca/cadastro.jpg);
 	background-position: center;
   background-repeat: no-repeat;
-  background-size: 120%;
+  background-size: 100%;
   color:white;
   height: 3rem;
   width: 13rem;
   border-radius: 5px 5px 5px 5px;
   border: none;
   background-color: #267cb5;
-  position: absolute;
+  position: relative;
   margin: auto;
-  top: 5rem;
+  top: 0rem;
   bottom: 0;
   left: 0;
   right: 0;
@@ -379,17 +413,223 @@ input[type="file"]{
   font-family: "Montserrat", sans-serif;
 }
 
+.sec_desafio{
+  background-image: url(../_imagens/letreca/img-desafio.jpg);
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  color:white;
+  height: 3rem;
+  width: 20rem;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  background-color: #267cb5;
+  position: relative;
+  margin: auto;
+  top: 0rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.img_desafio{
+  background-image: url(../_imagens/letreca/img-desafio.jpg);
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  color:white;
+  height: 3rem;
+  width: 20rem;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  background-color: #267cb5;
+  position: relative;
+  margin: auto;
+  top: 0rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.audio_desafio{
+  background-image: url(../_imagens/letreca/audio-desafio.jpg);
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  color:white;
+  height: 2.2rem;
+  width: 20rem;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  background-color: #267cb5;
+  position: relative;
+  margin: auto;
+  top: 0rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.img_desafio{
+  background-image: url(../_imagens/letreca/img-desafio.jpg);
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  color:white;
+  height: 2.2rem;
+  width: 20rem;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  background-color: #267cb5;
+  position: relative;
+  margin: auto;
+  top: 0rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+*:after,
+*:before,
+* {
+  box-sizing: border-box;
+}
+
+.control {
+  position: relative;
+}
+.control .file {
+  display: none;
+  color: white;
+  position: absolute;
+}
+.control .file + label {
+  top: 0.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-family: "Fjalla One", sans-serif;
+  font-size: 22px;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  background: lightgreen;
+  text-align: center;
+  vertical-align: text-top;
+  padding-top: 10px;
+  position: absolute;
+  transition: 0.2s all;
+  border-radius: 5px 5px 5px 5px;
+}
+.control .file + label:after {
+  transition: 0.2s all;
+  position: absolute;
+  left: 40px;
+  opacity: 0;
+  content: " \f093";
+  font-family: "FontAwesome";
+}
+
+.control .file + label:hover {
+  cursor: pointer;
+}
+.control .file + label:hover:after {
+  opacity: 1;
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
+}
+.control .file + label span {
+  font-size: 12px;
+  position: absolute;
+  top: 60px;
+  width: 200px;
+  text-align: center;
+  left: 0;
+  color: #000;
+}
+
+.control .file + label h6 {
+  font-size: 12px;
+  position: absolute;
+  top: 45px;
+  width: 200px;
+  text-align: center;
+  left: 0;
+  color: #000;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
+input[type=text]{
+  text-align: center;
+}
+
+input[type=password]{
+  text-align: center;
+}
+
+input[type=email]{
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 700px;
+  }
+  .img_desafio{
+      margin-top: 3.5rem;
+  }
+  .bt1{
+    margin-top: 3.5rem;
+  }
+}
+
 @media (min-width: 700px) {
     .container{
         max-width: 700px;
     }
+
 }
 
 @media (min-width: 576px) {
   .container {
     max-width: 700px;
   }
+
 }
+
 
 
 </style>

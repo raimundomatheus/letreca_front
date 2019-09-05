@@ -1,4 +1,4 @@
-<template id="cadastroContexto">
+<template id="login">
   <!--eslint-disable-->
   <div class="container">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -11,7 +11,7 @@
         <div class="col-sm">
           <a class="btn btn-voltar" href="/#/" role="button"></a>
           <img
-            src="../_imagens/letreca/cad-contexto.jpg"
+            src="../_imagens/letreca/login.png"
             class="img-fluid cadimg"
             alt="Imagem responsiva"
           />
@@ -19,69 +19,26 @@
       </div>
     </div>
 
-    <div id="cadastro" class="content-cadastro">
-      <form @submit="checkform" method="post" action>
-
-        <label class="ctb" for="">
-        </label>
-
-        <input
-          class="inp"
-          type="text"
-          v-model="nome"
-          required="required"
-          name="nome_contexto"
-          placeholder="Digite aqui o nome do contexto"
-        />
+    <div id="login" class="content-cadastro">
+      <form @submit="checkform" method="post" action="">
         
-        <label class="ctc" for="">
-        </label>
-
-        <img
-          src="../_imagens/letreca/img-do-contexto.jpg"
-          class="img-fluid mdc"
-          for="nome"
-          id="nome"
-          alt="Imagem responsiva"
-          style="display:none"
-        />
-       <!-- <input type="file" id="file" @change="uploadImagem" name="photo" accept="image/*" />
-        <img :src="imageSrc" class="image" />
-        <label class="label_contexto" for="file">
-          <i class="material-icons">add_photo_alternate</i>
-          Escolher foto
-        </label> -->
-
-        <div class="control">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" rel="stylesheet">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-
-            <input type="file" id="file" @change="uploadImagem" name="photo" accept="image/*" />
-            <img :src="imageSrc" class="image" />
-            <input class="file" id="file" type="file"/>
-            <label @click="()=>brfr()" for="file">Escolher foto<span>0 Arquivo </span></label>
-        </div>
-
-
-        <!--<input class="inp-img-contexto" v-model="imagem" type="text" required="required" name="img_contexto" placeholder="Cole aqui a URL da imagem">-->
-        <!--<a class="btn btn-cadastrar-contexto" type="submit" role="button" @click="()=>buscar(card)"></a>-->
-
-        <p @click="()=>buscar(editarContexto)">
-          <input class="btn_contexto" type="submit" value />
+        <p>
+          <label class="ctc" id="email" for="email_login"> </label>
+          <input class="inp" type="email" v-model="email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
         </p>
+
+        <p>
+          <label class="ctb" id="senha_login" for="senha"></label>
+          <input class="inp" v-model="senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
+        </p>
+
+        <p class="btn_login">
+          <input class="btn_fzrlogin" type="submit" value=""/>
+        </p>
+                     
+        <a id="cad" href="/#/cadastroUsuario">Quero me cadastrar!</a>
+
       </form>
-    </div>
-
-    <div class="container6">
-      <div class="row">
-        <div class="col-sm">
-          <a class="btn btn_listar" href="/#/editarContexto" role="button"></a>
-        </div>
-
-        <div class="col-sm btn_cd">
-          <a class="btn btn_criarD" href="/#/cadastroDesafio" role="button"></a>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -94,54 +51,33 @@ import $ from "jquery"
 import js from "jquery"
 
 export default {
-  template: "#cadastro",
-  data() {
-    return {
-      imageSrc: null,
-      vm: "",
-      nome: "",
-      imagem: ""
-    };
-  },
-
-  methods: {
-    checkform: function(e) {
-      let payload = {
-        nome: this.nome,
-        imagem: this.imagem
-      };
-
-      axios.post("http://localhost:3000/contextos", payload).then(response => {
-        console.log(response);
-      });
-
-      e.preventDefault();
+    template: "#login",
+    data() {
+       return {
+        email: "",
+        senha: ""
+        };
+    },
+    methods:{
+        checkform: function (e) {
+            let payload = {
+                    email: this.email,
+                    senha: this.senha,
+            };
+            axios.post("http://localhost:3000/login", payload).then((response)=>{
+                let token = response.data.token
+                window.localStorage.setItem("token", token)
+                console.log(token);
+            });
+            e.preventDefault();
+        },
     },
 
-    buscar: function(categoria) {
-      alert("Contexto Cadastrado");
-      this.$router.push("/editarContexto/");
-    },
-
-    uploadImagem: function(event) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = () => {
-        this.imagem = reader.result.split(",")[1];
-        console.log(this.imagem);
-      };    
-    },
-
-    brfr: function(){
-        console.log("estou aqui");
-        $('#file').change(function(e) {
-        var filename = e.target.files[0].name
-        console.log(filename);
-        $('span').html(filename);
-    });
-    }
-
-  }
+    /*methods:{
+    cadastroClick: () => {
+        router.push({name: '/cadastroContexto'})
+        }
+    }*/
 };
 </script>
 
@@ -279,7 +215,7 @@ export default {
 }
 
 .ctb {
-  background-image: url(../_imagens/letreca/nome-do-contexto.jpg);
+  background-image: url(../_imagens/letreca/senha.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -303,7 +239,7 @@ export default {
 }
 
 .ctc {
-  background-image: url(../_imagens/letreca/img-do-contexto.jpg);
+  background-image: url(../_imagens/letreca/email.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -349,11 +285,11 @@ input[type="file"] {
   font-family: "Montserrat", sans-serif;
 }
 
-.btn_contexto {
-  background-image: url(../_imagens/letreca/cadastro.jpg);
+.btn_fzrlogin {
+  background-image: url(../_imagens/letreca/entrar.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 120%;
+  background-size: 100%;
   color: white;
   height: 3rem;
   width: 13rem;
@@ -362,7 +298,7 @@ input[type="file"] {
   background-color: #267cb5;
   position: relative;
   margin: auto;
-  top: 5rem;
+  top: 0rem;
   bottom: 0;
   left: 0;
   right: 0;
@@ -480,6 +416,10 @@ input[type="file"] {
   text-align: center;
   left: 0;
   color: #000;
+}
+
+.btn_login{
+  margin-top: 1.5rem;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

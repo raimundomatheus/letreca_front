@@ -151,6 +151,7 @@ export default {
 	border-radius: 1%;
 	box-shadow: 5px 5px;
 	background-color: #A8D500;
+  height: 650px;
 }
 
 .container-v3{

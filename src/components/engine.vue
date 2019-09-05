@@ -52,29 +52,13 @@
 
 
             <div class="row palavra">
-                <div class="col-auto ca">
+              
+                <div class="col-auto ca" v-for="desafio in desafios" :key="desafio.id">
                     <div class="teclas tec">
-                      <a class="font" style="position: relative; font-size: 1.8rem; left: 0%">C</a>
+                      <a class="font" style="position: relative; font-size: 1.8rem; left: 0%">{{desafio.nome}}</a>
                     </div>
                   </div>
-
-                  <div class="col-auto ca">
-                    <div class="teclas tec">
-                        <a class="font" style="position: relative; font-size: 1.8rem; left: 0%">A</a>
-                    </div>
-                  </div>
-
-                  <div class="col-auto ca">
-                    <div class="teclas tec">
-                        <a class="font" style="position: relative; font-size: 1.8rem; left: 0%">S</a>
-                    </div>
-                  </div>
-                  
-                  <div class="col-auto ca">
-                    <div class="teclas tec">
-                        <a class="font" style="position: relative; font-size: 1.8rem; left: 0%">A</a>
-                    </div>
-                  </div>
+              
             </div>
             
             <div class="container3">
@@ -326,71 +310,7 @@ import axios from "axios";
 import { constants } from "crypto";
 
 export default {
-  template: "#login",
-  data() {
-    return {
-      email: "",
-      senha: "",
-      produtos: [],
-      produto: {}
-    };
-  },
-  created: function() {
-    let id = this.$route.params.id;
-    let url = "http://localhost:3000/produtos/";
 
-    axios
-      .get(url)
-      .then(response => {
-        this.produtos = response.data;
-
-        this.produto = this.produtos.find(item => item.id == id);
-        console.log(this.produto);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  },
-  updated: function() {
-    let id = this.$route.params.id;
-    let url = "http://localhost:3000/produtos/";
-
-    axios
-      .get(url)
-      .then(response => {
-        this.produtos = response.data;
-
-        this.produto = this.produtos.find(item => item.id == id);
-        console.log(this.produto);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  },
-  methods: {
-    checkform: function(e) {
-      let payload = {
-        email: this.email,
-        senha: this.senha
-      };
-
-      axios.post("http://localhost:3000/login", payload).then(response => {
-        let token = response.data.token;
-        window.localStorage.setItem("token", token);
-        alert("Você está logado");
-      });
-      e.preventDefault();
-    },
-
-    ver: function(categoria) {
-      this.$router.push("/produtos/");
-    },
-
-    comprar: function(id) {
-      this.$router.push("/carrinho/" + id);
-    },
-    
-  }
 };
 </script>
 
@@ -408,6 +328,7 @@ export default {
 	background-color: #A8D500;
 	max-width: auto !important;
 	border: none !important;
+  height: 650px;
 }
 
 .engine{

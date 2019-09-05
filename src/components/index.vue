@@ -3,7 +3,7 @@
   <div class="container principal">
             <!--<img src="../_imagens/letreca/letreca2.jpg" class="img-fluid im" alt="Imagem responsiva">-->
             <a class="btn play" href="/#/contextos" role="button"></a>
-            <a class="btn config" href="/#/cadastroContexto" role="button"></a>
+            <a class="btn config" href="/#/login" role="button"></a>
        </div>
 </template>
 

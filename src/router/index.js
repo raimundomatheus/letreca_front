@@ -7,6 +7,8 @@ import cadastroDesafio from '@/components/cadastroDesafio'
 import editarContexto from '@/components/editarContexto'
 import contextos from '@/components/contextos'
 import engine from '@/components/engine'
+import cadastroUsuario from '@/components/cadastroUsuario'
+import login from '@/components/login'
 
 Vue.use(Router)
 
@@ -52,6 +54,16 @@ export default new Router({
       path: '/engine/',
       name: 'engine',
       component: engine
+    },
+    {
+      path: '/cadastroUsuario/',
+      name: 'cadastroUsuario',
+      component: cadastroUsuario
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     }
 
   ]
