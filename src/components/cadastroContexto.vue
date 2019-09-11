@@ -66,7 +66,7 @@
         <!--<input class="inp-img-contexto" v-model="imagem" type="text" required="required" name="img_contexto" placeholder="Cole aqui a URL da imagem">-->
         <!--<a class="btn btn-cadastrar-contexto" type="submit" role="button" @click="()=>buscar(card)"></a>-->
 
-        <p @click="()=>buscar(editarContexto)">
+        <p @click="checkform">
           <input class="btn_contexto" type="submit" value />
         </p>
       </form>
@@ -113,12 +113,13 @@ export default {
 
       axios.post("http://localhost:3000/contextos", payload).then(response => {
         console.log(response);
+        this.buscar();
       });
 
       e.preventDefault();
     },
 
-    buscar: function(categoria) {
+    buscar: function() {
       alert("Contexto Cadastrado");
       this.$router.push("/editarContexto/");
     },

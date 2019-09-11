@@ -32,27 +32,12 @@
     </div>
   </div>
 
+
+  <a href="/#/cadastroContexto">Cadastrar contexto</a>
 </div>
 
 
- <!--  <div id="row" class="row">
-      <div class="col-sm-3"  v-for="produto in produtos" :key="produto.id" >
-        <div class="card">
-          <a href="#">
-            <img v-bind:src="produto.imagem" class="card-img-top" alt>
-          </a>
-          <div class="card-body">
-            <a href="">
-            <h6 class="card-title text-muted">{{produto.categoria}}</h6>
-            </a>
-            <p class="card-text">{{produto.nome}}</p>
-            <h6 class>R$ {{produto.valor}}</h6>
-            <a href="#" class="btn btn-primary" @click="()=>comprar(produto.id)">COMPRAR</a>
-          </div>
-      </div>
-    </div>
-  </div>
-  <a id href="/#/cadastroProdutos">Cadastrar Produtos</a>
+ <!--  
   -->
 
 </template>
@@ -122,8 +107,8 @@ export default {
       e.preventDefault();
     },
 
-    comprar: function(id){
-      this.$router.push("/cardItem/"+id)
+    comprar: function(){
+      this.$router.push("/cadastroContexto")
     }
     
   }

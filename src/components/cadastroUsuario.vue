@@ -20,27 +20,26 @@
     </div>
 
     <div id="cadastro" class="content-cadastro">
-      <form @submit="checkform" method="post" action="">
 
         <p>
           <label class="ctb" id="nome" for="nome"> </label>
-          <input class="inp" type="text" v-model="nome" required="required" name="nome_usuario" placeholder="Digite seu nome" />
+          <input class="inp" type="text" v-model="register.nome" required="required" name="nome_usuario" placeholder="Digite seu nome" />
         </p>
         
         <p>
           <label class="ctc" id="email" for="email"> </label>
-          <input class="inp" type="email" v-model="email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
+          <input class="inp" type="email" v-model="register.email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
         </p>
 
         <p>
           <label class="ctd" id="senha" for="senha"></label>
-          <input class="inp" v-model="senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
+          <input class="inp" v-model="register.senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
         </p>
 
-        <p class="btn_user" @click="()=>buscar()">
+        <p class="btn_user" @click='signup'>
           <input class="btn_caduser" type="submit" value=""/>
         </p>
-      </form>
+
     </div>
   </div>
 </template>
@@ -51,33 +50,35 @@ import axios from "axios"
 import jquery from "jquery"
 import $ from "jquery"
 import js from "jquery"
+import { copyFile } from 'fs';
 
 export default {
   template: "#cadastro",
   data() {
     return {
-      nome: "",
-      email: "",
-      senha: ""
-    };
+      register: {
+        nome: "",
+        email: "",
+        senha: ""
+      }
+    }
   },
 
   methods: {
-    checkform: function(e) {
-      let payload = {
-        nome: this.nome,
-        email: this.email,
-        senha: this.senha
-      };
-
-      axios.post("http://localhost:3000/usuarios", payload).then(response => {
+    signup() {
+      
+      console.log("axios")
+      axios.post("http://localhost:3000/usuarios", this.register).then(response => {
         console.log(response);
+        
+      })
+      .catch(function(error){
+        console.log(error);
       });
 
-      e.preventDefault();
     },
 
-    buscar: function(categoria) {
+    buscar: function() {
       alert("Usuário Cadastrado");
       this.$router.push("/login/");
     }

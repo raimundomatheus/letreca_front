@@ -70,7 +70,7 @@
               <div class="container-d-4" style="">
                 <div class="row">
                   <div class="col-sm">
-                    <p @click="()=>buscar(desafios)">
+                    <p @click="checkform">
                       <input class="btn_desafio" type="submit" value="">
                     </p>
                       <!--<a class="btn btn-cadastrar-desafio" href="" role="button"></a>-->
@@ -115,11 +115,12 @@ export default {
 
       axios.post("http://localhost:3000/desafios", payload).then(response => {
         console.log(response);
+        this.buscar();
       });
 
       e.preventDefault();
     },
-    buscar: function(categoria) {
+    buscar: function() {
       alert("Contexto Cadastrado");
       this.$router.push("/editarContexto/");
     },

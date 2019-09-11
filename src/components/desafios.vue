@@ -34,9 +34,8 @@
     </div>
   </div>
 
-</div>
-
- <!--  <div id="row" class="row">
+  <a href="/#/cadastroDesafio">Cadastrar desafio</a>
+<!-- <div id="row" class="row">
       <div class="col-sm-3"  v-for="produto in produtos" :key="produto.id" >
         <div class="card">
           <a href="#">
@@ -53,7 +52,10 @@
       </div>
     </div>
   </div>
-  <a id href="/#/cadastroProdutos">Cadastrar Produtos</a>
+  <a id href="/#/cadastroProdutos">Cadastrar Produtos</a> -->
+</div>
+
+ <!--  
   -->
 
 </template>

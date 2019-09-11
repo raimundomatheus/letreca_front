@@ -68,6 +68,7 @@ export default {
                 let token = response.data.token
                 window.localStorage.setItem("token", token)
                 console.log(token);
+                this.$router.push({name: 'contextos'});
             });
             e.preventDefault();
         },
