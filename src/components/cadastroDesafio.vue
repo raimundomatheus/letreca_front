@@ -9,8 +9,8 @@
             <div class="container-d-5">
               <div class="row">
                 <div class="col-sm">
-                  <a class="btn btn-voltar" href="/#/cadastroContexto" role="button"></a>
-                  <img src="../_imagens/letreca/cad-desafio.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
+                  <a class="btn btn-voltar-cadd" href="/#/cadastroContexto" role="button"></a>
+                  <img src="../_imagens/letreca/cad-desafio.jpg" class="img-fluid cadimg-cadd" alt="Imagem responsiva">
                 </div>
 
               </div> 
@@ -222,14 +222,14 @@ export default {
 }
 
 
-.cadimg{
+.cadimg-cadd{
 	position: relative;
 	width: 75%;
 	left: -3%;
 }
 
-.btn-voltar{
-	background-image: url(../_imagens/letreca/voltar-icone.png);
+.btn-voltar-cadd{
+	background-image: url(../_imagens/letreca/return.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
