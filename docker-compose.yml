@@ -1,0 +1,7 @@
+version: "2"
+services:
+  letreca_front:
+    container_name: letreca_front
+    build: . 
+    ports:
+      - "8080:8080"
