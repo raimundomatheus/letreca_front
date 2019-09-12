@@ -111,7 +111,7 @@ export default {
         imagem: this.imagem
       };
 
-      axios.post("http://localhost:3000/contextos", payload).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos", payload).then(response => {
         console.log(response);
         this.buscar();
       });

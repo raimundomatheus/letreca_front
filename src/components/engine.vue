@@ -571,7 +571,7 @@ export default {
   created: function() {
     let cat = this.$route.params.id;
     console.log(cat);
-    let url = "http://localhost:3000/desafios/"+cat+"/contexto";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
     if (cat !== undefined) {
       //url += cat;
       console.log(url);
@@ -686,7 +686,7 @@ export default {
     repeatGame: function() {
       Object.assign(this.$data, this.$options.data.call(this));
       let cat = this.$route.params.id;
-      let url = "http://localhost:3000/desafios/"+cat+"/contexto";
+      let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
       if (cat !== undefined) {
         //url += cat;
       }
