@@ -4,15 +4,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" />
     <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-    <!-- <img src="../imagens/cad-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
-    <a class="btn btn-voltar" href="../index.html" role="button" placeholder="Digite o nome do contexto"></a>-->
+    <!-- <img src="../imagens/cad-contexto.jpg" class="img-fluid cadimg-cadcontexto" alt="Imagem responsiva">
+    <a class="btn btn-voltar-cadcontexto" href="../index.html" role="button" placeholder="Digite o nome do contexto"></a>-->
     <div class="container5">
       <div class="row">
         <div class="col-sm">
-          <a class="btn btn-voltar" href="/#/" role="button"></a>
+          <a class="btn btn-voltar-cadcontexto" href="/#/" role="button"></a>
           <img
             src="../_imagens/letreca/cad-contexto.jpg"
-            class="img-fluid cadimg"
+            class="img-fluid cadimg-cadcontexto"
             alt="Imagem responsiva"
           />
         </div>
@@ -162,14 +162,14 @@ export default {
   height: 650px;
 }
 
-/*.cadimg{
+/*.cadimg-cadcontexto{
 	position: absolute;
 	width: 100%;
 	top: 0%;
 	left: 0%;
 }*/
 
-.cadimg {
+.cadimg-cadcontexto {
   position: relative;
   width: 75%;
   left: -3%;
@@ -185,7 +185,7 @@ export default {
   margin-bottom: 10%;
   margin-top: 4%;
 }
-/*.btn-voltar{
+/*.btn-voltar-cadcontexto{
 	background-image: url("../imagens/voltar-icone.png");
 	background-position: center;
     background-repeat: no-repeat;
@@ -198,8 +198,8 @@ export default {
 	width: 8%;
 }*/
 
-.btn-voltar {
-  background-image: url(../_imagens/letreca/voltar-icone.png);
+.btn-voltar-cadcontexto {
+  background-image: url(../_imagens/letreca/return.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;

@@ -3,14 +3,14 @@
 
 <div class="container">
   <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
-  <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
+  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-editc" alt="Imagem responsiva">
+  <a class="btn btn-voltar-editc" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
 
   <div class="container2">
     <div class="row">
       <div class="col-sm">
-        <a class="btn btn-voltar" href="/#/cadastroContexto" role="button" placeholder="Digite o nome do contexto"></a>
-        <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
+        <a class="btn btn-voltar-editc" href="/#/cadastroContexto" role="button" placeholder="Digite o nome do contexto"></a>
+        <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg-editc" alt="Imagem responsiva">
       </div>
     </div> 
   </div>
@@ -214,20 +214,20 @@ export default {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-/*.cadimg{
+/*.cadimg-editc{
 	position: absolute;
 	width: 100%;
 	top: 0%;
 	left: 0%;
 }*/
 
-.cadimg{
+.cadimg-editc{
 	position: relative;
 	width: 75%;
 	left: -3%;
 }
 
-/*.btn-voltar{
+/*.btn-voltar-editc{
 	background-image: url("../imagens/voltar-icone.png");
 	background-position: center;
     background-repeat: no-repeat;
@@ -240,8 +240,8 @@ export default {
 	width: 8%;
 }*/
 
-.btn-voltar{
-	background-image: url(../_imagens/letreca/voltar-icone.png);
+.btn-voltar-editc{
+	background-image: url(../_imagens/letreca/return.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;

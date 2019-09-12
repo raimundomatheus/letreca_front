@@ -4,12 +4,12 @@
 <div class="container">
   <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
   <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
-  <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
+  <a class="btn btn-voltar-contexto" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
 
   <div class="container2-contexto">
     <div class="row">
       <div class="col-sm">
-        <a class="btn btn-voltar" href="/#/" role="button" placeholder="Digite o nome do contexto"></a>
+        <a class="btn btn-voltar-contexto" href="/#/" role="button" placeholder="Digite o nome do contexto"></a>
         <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
       </div>
     </div> 
@@ -161,7 +161,7 @@ export default {
 	overflow-y: auto;
 }
 
-/*.btn-voltar{
+/*.btn-voltar-contexto{
 	background-image: url("../imagens/voltar-icone.png");
 	background-position: center;
     background-repeat: no-repeat;
@@ -174,8 +174,8 @@ export default {
 	width: 8%;
 }
 */
-.btn-voltar{
-	background-image: url(../_imagens/letreca/voltar-icone.png);
+.btn-voltar-contexto{
+	background-image: url(../_imagens/letreca/return.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;

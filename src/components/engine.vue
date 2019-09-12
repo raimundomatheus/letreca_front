@@ -1,18 +1,21 @@
 <template id="engine">
   <!--eslint-disable-->
   <div class="container engine">
+    <a class="btn btn-home2-engine" href="/index" v-on:click="repeatGame()"></a>
     <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-engine" alt="Imagem responsiva">
     <a class="btn btn-voltar-engine" href="" role="button" placeholder="Digite o nome do contexto"></a>-->
 
     <div class="alert alert-success" role="alert" v-show="winner">
       <a class="btn btn-voltar-engine" href="#/contextos" v-on:click="repeatGame()"></a>
       <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
+      <a class="btn btn-home-engine" href="/index" v-on:click="repeatGame()"></a>
       <p>Parabéns! Você finalizou o jogo!</p>
       <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div>
     </div>
     <div class="alert alert-warning" role="alert" v-show="looser">
       <a class="btn btn-voltar-engine" href="#/contextos" v-on:click="repeatGame()"></a>
       <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
+      <a class="btn btn-home-engine" href="/index" v-on:click="repeatGame()"></a>
       <p>Oh Oh! Infelizmente não foi dessa vez! </p>
       <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div> 
     </div>
@@ -97,7 +100,7 @@
 
     <div class="row container-teclado">
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -109,7 +112,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -121,7 +124,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -133,7 +136,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -145,7 +148,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -157,7 +160,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -169,7 +172,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -181,7 +184,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -193,7 +196,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -205,7 +208,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -217,7 +220,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -229,7 +232,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -241,7 +244,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -253,7 +256,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -265,7 +268,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -277,7 +280,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -289,7 +292,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -301,7 +304,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -313,7 +316,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -325,7 +328,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -337,7 +340,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -349,7 +352,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -361,7 +364,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -373,7 +376,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -385,7 +388,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -397,7 +400,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -409,7 +412,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -421,7 +424,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -433,7 +436,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -445,7 +448,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -457,7 +460,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -469,7 +472,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -481,7 +484,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -493,7 +496,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -505,7 +508,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -517,7 +520,7 @@
       </div>
 
       <div class="col-auto" style="width: 3.5rem">
-        <div class="teclas" style="width: 3rem">
+        <div class="teclas teclado" style="width: 3rem">
           <a
             class="btn btn-default"
             href="#"
@@ -656,25 +659,26 @@ export default {
       if (this.gameWord.indexOf("#") < 0) {
         this.rounds += 1;
         this.scores += 10; 
-        if(this.rounds >= 1 ){
+        if(this.rounds >= 5){
           document.querySelectorAll("a.btn-default").forEach(function(el, index) {
             el.classList.add("disabled");
           });
           this.winner = true;
         } else {
           this.nextChallenge();
-          alert("Next round")
+          //alert("Next round")
         }
         
       } else if (!this.hasGuessers()) {
         this.rounds += 1;
-        if(this.rounds >= 1){
+        if(this.rounds >= 5){
           document.querySelectorAll("a.btn-default").forEach(function(el, index) {
             el.classList.add("disabled");
           });
           this.looser = true;
         } else {
             this.nextChallenge();
+            alert("Errou!");
         }
       }
     },
@@ -731,7 +735,7 @@ export default {
 }
 
 .engine {
-  background-color: #2a7039;
+  background-color: #2a7039 !important;
 }
 
 .container-teclado {
@@ -785,7 +789,7 @@ export default {
 }
 
 .btn-voltar-engine{
-	background-image: url(../_imagens/letreca/voltar-icone.png);
+	background-image: url(../_imagens/letreca/return.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -794,10 +798,11 @@ export default {
 	height: 3rem;
 	z-index: 2;
   left: 1%;
+  top: 1.5rem;
 }
 
 .btn-repeat-engine{
-	background-image: url(../_imagens/letreca/repetir.jpeg);
+	background-image: url(../_imagens/letreca/repetir.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -805,7 +810,34 @@ export default {
 	width: 7%;
 	height: 3rem;
 	z-index: 2;
-  left: 9%;
+  left: 8.7%;
+  top: 1.5rem;
+}
+
+.btn-home-engine{
+	background-image: url(../_imagens/letreca/home.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+	position: absolute;
+	width: 7%;
+	height: 3rem;
+	z-index: 2;
+  left: 16.1%;
+  top: 1.5rem;
+}
+
+.btn-home2-engine{
+	background-image: url(../_imagens/letreca/home.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+	position: absolute;
+	width: 7%;
+	height: 3rem;
+	z-index: 2;
+  left: 1rem;
+  top: 1rem;
 }
 
 .life {
@@ -840,6 +872,47 @@ export default {
     width: 95.5% !important;
     z-index: 99999 !important;
 }
+@media (min-width: 700px) {
+  .container {
+    max-width: 700px;
+  }
+  
+  .container3 {
+    width: 40%;
+    left: 50%;
+    top: 33%;
+  }
+
+  .palavra {
+    top: 20%;
+    left: 8%;
+  }
+
+  .life {
+    top: 12%;
+    left: 49%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 1.5rem;
+  }
+}
 
 @media (max-width: 699px) {
   .container {
@@ -872,17 +945,159 @@ export default {
   .container3 {
     width: 40%;
     left: 50%;
-    top: 25%;
+    top: 30%;
   }
 
   .palavra {
-    top: 16%;
-    left: 10%;
+    top: 20%;
+    left: 8%;
   }
 
   .life {
-    top: 5%;
-    left: 40%;
+    top: 12%;
+    left: 43%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 0.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2%;
+  }
+
+  .col-auto {
+    margin-top: 2%;
+  }
+
+  .ca {
+    width: 2.2rem !important;
+  }
+
+  /*style das letras*/
+  .tec {
+    width: 2rem !important;
+    /*background-color: #2A7039;*/
+  }
+
+  .font {
+    font-size: 1.5rem !important;
+  }
+
+  .container3 {
+    width: 40%;
+    left: 50%;
+    top: 30%;
+  }
+
+  .palavra {
+    top: 20%;
+    left: 8%;
+  }
+
+  .life {
+    top: 12%;
+    left: 43%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2%;
+  }
+
+  .col-auto {
+    margin-top: 2%;
+  }
+
+  .ca {
+    width: 2.2rem !important;
+  }
+
+  /*style das letras*/
+  .tec {
+    width: 2rem !important;
+    /*background-color: #2A7039;*/
+  }
+
+  .font {
+    font-size: 1.5rem !important;
+  }
+
+  .container3 {
+    width: 40%;
+    left: 50%;
+    top: 30%;
+  }
+
+  .palavra {
+    top: 20%;
+    left: 8%;
+  }
+
+  .life {
+    top: 12%;
+    left: 43%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 2rem;
   }
 }
 
@@ -910,20 +1125,40 @@ export default {
     font-size: 1.5rem !important;
   }
 
-  .container3 {
+    .container3 {
     width: 40%;
-    left: 50%;
-    top: 25%;
+    left: 30%;
+    top: 30%;
   }
 
   .palavra {
-    top: 16%;
-    left: 10%;
+    top: 20%;
+    left: 8%;
   }
 
   .life {
-    top: 5%;
-    left: 40%;
+    top: 12%;
+    left: 9%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 2.5rem;
   }
 }
 
@@ -951,39 +1186,92 @@ export default {
     font-size: 1.5rem !important;
   }
 
-  .container3 {
+    .container3 {
     width: 40%;
-    left: 45%;
-    top: 18%;
+    left: 30%;
+    top: 30%;
   }
 
   .palavra {
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    left: 8%;
   }
 
   .life {
-    top: 2%;
-    left: 20%;
+    top: 12%;
+    left: 9%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 5rem;
   }
 }
 
-@media (min-width: 700px) {
-  .container {
-    max-width: 700px;
-  }
-}
 
-@media (min-width: 576px) {
+@media (max-width: 465px) {
   .container {
     max-width: 700px;
   }
+
+  .container3 {
+    width: 40%;
+    left: 30%;
+    top: 30%;
+  }
+
+  .palavra {
+    top: 20%;
+    left: 8%;
+  }
+
+  .life {
+    top: 12%;
+    left: 9%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 2.5%;
+    top: 5rem;
+  }
+
 }
 
 @media (max-width: 399px) {
   .container-teclado {
     background-color: #2a7039;
     padding-left: 2.5%;
+    top: 5rem;
   }
 
   .col-auto {
@@ -1006,18 +1294,32 @@ export default {
 
   .container3 {
     width: 40%;
-    left: 45%;
-    top: 18%;
+    left: 30%;
+    top: 30%;
   }
 
   .palavra {
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    left: 8%;
   }
 
   .life {
-    top: 2%;
-    left: 20%;
+    top: 12%;
+    left: 12%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
   }
 }
 
@@ -1025,10 +1327,7 @@ export default {
   .container-teclado {
     background-color: #2a7039;
     padding-left: 2.5%;
-  }
-
-  .col-auto {
-    margin-top: 2%;
+    top: 5rem;
   }
 
   .ca {
@@ -1047,18 +1346,33 @@ export default {
 
   .container3 {
     width: 40%;
-    left: 45%;
-    top: 18%;
+    left: 30%;
+    top: 23%;
   }
 
   .palavra {
-    top: 10%;
+    top: 15%;
     left: 10%;
   }
 
   .life {
-    top: 2%;
-    left: 20%;
+    top: 8%;
+    left: 10%;
   }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
 }
 </style>
