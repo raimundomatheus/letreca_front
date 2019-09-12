@@ -7,12 +7,14 @@
     <div class="alert alert-success" role="alert" v-show="winner">
       <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
       <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
-      <strong>Parabéns!</strong> Você finalizou o jogo!
+      <p>Parabéns! Você finalizou o jogo!</p>
+      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div>
     </div>
     <div class="alert alert-warning" role="alert" v-show="looser">
       <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
       <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
-      <strong>Oh Oh!</strong> Infelizmente não foi dessa vez!
+      <p>Oh Oh! Infelizmente não foi dessa vez! </p>
+      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div> 
     </div>
 
     <!-- <form class="lista" method="post" accept-charset="utf-8">
@@ -654,7 +656,7 @@ export default {
       if (this.gameWord.indexOf("#") < 0) {
         this.rounds += 1;
         this.scores += 10; 
-        if(this.rounds >= 1 ){
+        if(this.rounds >= 3 ){
           document.querySelectorAll("a.btn-default").forEach(function(el, index) {
             el.classList.add("disabled");
           });
@@ -666,7 +668,7 @@ export default {
         
       } else if (!this.hasGuessers()) {
         this.rounds += 1;
-        if(this.rounds >= 1){
+        if(this.rounds >= 3){
           document.querySelectorAll("a.btn-default").forEach(function(el, index) {
             el.classList.add("disabled");
           });
@@ -777,8 +779,8 @@ export default {
 .container3 {
   position: absolute;
   z-index: 999999;
-  width: 40%;
-  left: 50%;
+  width: 35%;
+  left: 60%;
   top: 29%;
 }
 
@@ -787,11 +789,11 @@ export default {
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-	position: relative;
+	position: absolute;
 	width: 7%;
 	height: 3rem;
 	z-index: 2;
-  left: -8%;
+  left: 1%;
 }
 
 .btn-repeat{
@@ -799,11 +801,11 @@ export default {
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-	position: relative;
+	position: absolute;
 	width: 7%;
 	height: 3rem;
 	z-index: 2;
-  left: -8%;
+  left: 9%;
 }
 
 .life {
@@ -825,6 +827,18 @@ export default {
 /*style das letras*/
 .tec {
   width: 3rem !important;
+}
+
+.alert-success {
+    position: absolute !important;
+    width: 95.5% !important;
+    z-index: 99999 !important;
+}
+
+.alert-warning{
+    position: absolute !important;
+    width: 95.5% !important;
+    z-index: 99999 !important;
 }
 
 @media (max-width: 699px) {

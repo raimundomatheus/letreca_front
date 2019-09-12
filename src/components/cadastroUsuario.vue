@@ -70,10 +70,12 @@ export default {
       console.log("axios")
       axios.post("http://localhost:3000/usuarios", this.register).then(response => {
         console.log(response);
-        
+        alert("Usuário Cadastrado");
+        this.$router.push("/login/");
       })
       .catch(function(error){
         console.log(error);
+        alert("Preencha todos os campos corretamente");
       });
 
     },

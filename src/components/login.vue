@@ -69,6 +69,10 @@ export default {
                 window.localStorage.setItem("token", token)
                 console.log(token);
                 this.$router.push({name: 'cadastroContexto'});
+            })
+            .catch(function(error){
+              console.log(error);
+              alert("E-mail ou senha incorretos");
             });
             e.preventDefault();
         },
