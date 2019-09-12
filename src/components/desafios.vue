@@ -76,7 +76,7 @@ export default {
 
   created: function() {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/desafios/"+cat+"/contexto";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
     console.log(cat);
 
     axios
@@ -92,7 +92,7 @@ export default {
 
   updated: function(l, a) {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/desafios/"+cat+"/contexto";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
 
     axios
       .get(url)
@@ -112,7 +112,7 @@ export default {
         senha: this.senha
       };
 
-      axios.post("http://localhost:3000/login", payload).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload).then(response => {
         let token = response.data.token;
         window.localStorage.setItem("token", token);
         alert("Você está logado");
@@ -125,7 +125,7 @@ export default {
     },
 
     apagarDesafio: function(item) {
-      axios.delete("http://localhost:3000/desafios/" + item.id)
+      axios.delete("https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/" + item.id)
         .then(item => {
           console.log("indice = ");
           let indice = this.contextos.indexOf(item)

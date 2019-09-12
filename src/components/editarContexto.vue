@@ -83,7 +83,7 @@ export default {
 
   created: function() {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/contextos/";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
     if (cat !== undefined) {
       url += cat;
     }
@@ -101,7 +101,7 @@ export default {
 
   updated: function(l, a) {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/contextos/";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
     if (cat !== undefined) {
       url += cat;
     }
@@ -128,7 +128,7 @@ export default {
         erro: this.erro
       };
 
-      axios.delete("http://localhost:3000/editarContextos", payload).then(response => {
+      axios.delete("https://app.sisalfa.dcx.ufpb.br/letreca/v1/editarContextos", payload).then(response => {
         console.log(response);
         console.log("Estou aqui");
       });
@@ -150,13 +150,13 @@ export default {
       this.test_id = id1;
     },
     apagarData(contextos, id){
-      axios.delete("http://localhost:3000/editarContextos/" + id)
+      axios.delete("https://app.sisalfa.dcx.ufpb.br/letreca/v1/editarContextos/" + id)
       .then(response => this.contextos.splice(index, 1));
       window.location.reload();
     },
 
     apagarContexto: function(item) {
-      axios.delete("http://localhost:3000/contextos/" + item.id)
+      axios.delete("https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/" + item.id)
         .then(item => {
           console.log("indice = ");
           let indice = this.contextos.indexOf(item)

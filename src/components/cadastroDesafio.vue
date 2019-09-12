@@ -113,7 +113,7 @@ export default {
         contexto: this.bola
       };
 
-      axios.post("http://localhost:3000/desafios", payload).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios", payload).then(response => {
         console.log(response);
         this.buscar();
       });
@@ -126,7 +126,7 @@ export default {
     },
     
     listar: function() {
-      axios.get("http://localhost:3000/contextos").then(response => {
+      axios.get("https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos").then(response => {
         this.contextos = response.data;
         console.log(response);
       })

@@ -27,7 +27,7 @@ export default {
         senha: this.senha
       };
 
-      axios.post("http://localhost:3000/login", payload).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload).then(response => {
         let token = response.data.token;
         window.localStorage.setItem("token", token);
         alert("Você está logado");

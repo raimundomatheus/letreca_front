@@ -68,8 +68,9 @@ export default {
     signup() {
       
       console.log("axios")
-      axios.post("http://localhost:3000/usuarios", this.register).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/usuarios", this.register).then(response => {
         console.log(response);
+        this.buscar();
         
       })
       .catch(function(error){

@@ -58,9 +58,9 @@ export default {
 
   created: function() {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/contextos/";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
     if (cat !== undefined) {
-      url += cat;
+      //url += cat;
     }
 
     axios
@@ -76,7 +76,7 @@ export default {
 
   updated: function(l, a) {
     let cat = this.$route.params.id;
-    let url = "http://localhost:3000/contextos/";
+    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
     if (cat !== undefined) {
       url += cat;
     }
@@ -99,7 +99,7 @@ export default {
         senha: this.senha
       };
 
-      axios.post("http://localhost:3000/login", payload).then(response => {
+      axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload).then(response => {
         let token = response.data.token;
         window.localStorage.setItem("token", token);
         alert("Você está logado");
