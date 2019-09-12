@@ -1,18 +1,20 @@
 <template id="engine">
   <!--eslint-disable-->
   <div class="container engine">
-    <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
-    <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a>-->
+    <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-engine" alt="Imagem responsiva">
+    <a class="btn btn-voltar-engine" href="" role="button" placeholder="Digite o nome do contexto"></a>-->
 
     <div class="alert alert-success" role="alert" v-show="winner">
-      <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
-      <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
-      <strong>Parabéns!</strong> Você finalizou o jogo!
+      <a class="btn btn-voltar-engine" href="#/contextos" v-on:click="repeatGame()"></a>
+      <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
+      <p>Parabéns! Você finalizou o jogo!</p>
+      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div>
     </div>
     <div class="alert alert-warning" role="alert" v-show="looser">
-      <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
-      <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
-      <strong>Oh Oh!</strong> Infelizmente não foi dessa vez!
+      <a class="btn btn-voltar-engine" href="#/contextos" v-on:click="repeatGame()"></a>
+      <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
+      <p>Oh Oh! Infelizmente não foi dessa vez! </p>
+      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div> 
     </div>
 
     <!-- <form class="lista" method="post" accept-charset="utf-8">
@@ -30,7 +32,7 @@
             :src="heartImg"
             ref="heartL"
             id="heartLife"
-            class="img-fluid cadimg"
+            class="img-fluid cadimg-engine"
             alt="Imagem responsiva"
             :style="filterGrayScale"
           />
@@ -41,32 +43,32 @@
     <!-- <div class="row life">
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img ref="img" :src="heartImg" id="heartLife1" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img ref="img" :src="heartImg" id="heartLife1" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img src="../_imagens/letreca/life.png" id="heartLife2" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img src="../_imagens/letreca/life.png" id="heartLife2" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img src="../_imagens/letreca/life.png" id="heartLife3" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img src="../_imagens/letreca/life.png" id="heartLife3" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img src="../_imagens/letreca/life.png" id="heartLife4" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img src="../_imagens/letreca/life.png" id="heartLife4" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img src="../_imagens/letreca/life.png" id="heartLife5" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img src="../_imagens/letreca/life.png" id="heartLife5" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
                 <div class="col-auto ac">
                   <div class="vida">
-                      <img src="../_imagens/letreca/life.png" id="heartLife6" class="img-fluid cadimg" alt="Imagem responsiva">
+                      <img src="../_imagens/letreca/life.png" id="heartLife6" class="img-fluid cadimg-engine" alt="Imagem responsiva">
                   </div>
                 </div>
     </div>-->
@@ -86,11 +88,11 @@
     </div>
 
     <div class="container3">
-      <img :src="imgChallenge" class="img-fluid cadimg" alt="Imagem responsiva" />
+      <img :src="imgChallenge" class="img-fluid cadimg-engine" alt="Imagem responsiva" />
     </div>
 
     <div class="container2">
-      <img src="../_imagens/letreca/paisagem2.png" class="img-fluid cadimg" alt="Imagem responsiva" />
+      <img src="../_imagens/letreca/paisagem2.png" class="img-fluid cadimg-engine" alt="Imagem responsiva" />
     </div>
 
     <div class="row container-teclado">
@@ -740,7 +742,7 @@ export default {
   border-radius: 5px 5px 5px 5px;
 }
 
-.cadimg {
+.cadimg-engine {
   position: relative;
   width: 100%;
   left: 0%;
@@ -777,33 +779,33 @@ export default {
 .container3 {
   position: absolute;
   z-index: 999999;
-  width: 40%;
-  left: 50%;
+  width: 35%;
+  left: 60%;
   top: 29%;
 }
 
-.btn-voltar{
+.btn-voltar-engine{
 	background-image: url(../_imagens/letreca/voltar-icone.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-	position: relative;
+	position: absolute;
 	width: 7%;
 	height: 3rem;
 	z-index: 2;
-  left: -8%;
+  left: 1%;
 }
 
-.btn-repeat{
+.btn-repeat-engine{
 	background-image: url(../_imagens/letreca/repetir.jpeg);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-	position: relative;
+	position: absolute;
 	width: 7%;
 	height: 3rem;
 	z-index: 2;
-  left: -8%;
+  left: 9%;
 }
 
 .life {
@@ -825,6 +827,18 @@ export default {
 /*style das letras*/
 .tec {
   width: 3rem !important;
+}
+
+.alert-success {
+    position: absolute !important;
+    width: 95.5% !important;
+    z-index: 99999 !important;
+}
+
+.alert-warning{
+    position: absolute !important;
+    width: 95.5% !important;
+    z-index: 99999 !important;
 }
 
 @media (max-width: 699px) {

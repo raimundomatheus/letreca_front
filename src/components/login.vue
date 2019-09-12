@@ -4,15 +4,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" />
     <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-    <!-- <img src="../imagens/cad-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
-    <a class="btn btn-voltar" href="../index.html" role="button" placeholder="Digite o nome do contexto"></a>-->
+    <!-- <img src="../imagens/cad-contexto.jpg" class="img-fluid cadimg-login" alt="Imagem responsiva">
+    <a class="btn btn-voltar-login" href="../index.html" role="button" placeholder="Digite o nome do contexto"></a>-->
     <div class="container5">
       <div class="row">
         <div class="col-sm">
-          <a class="btn btn-voltar" href="/#/" role="button"></a>
+          <a class="btn btn-voltar-login" href="/#/" role="button"></a>
           <img
             src="../_imagens/letreca/login.png"
-            class="img-fluid cadimg"
+            class="img-fluid cadimg-login"
             alt="Imagem responsiva"
           />
         </div>
@@ -69,6 +69,10 @@ export default {
                 window.localStorage.setItem("token", token)
                 console.log(token);
                 this.$router.push({name: 'cadastroContexto'});
+            })
+            .catch(function(error){
+              console.log(error);
+              alert("E-mail ou senha incorretos");
             });
             e.preventDefault();
         },
@@ -98,14 +102,14 @@ export default {
   height: 650px;
 }
 
-/*.cadimg{
+/*.cadimg-login{
 	position: absolute;
 	width: 100%;
 	top: 0%;
 	left: 0%;
 }*/
 
-.cadimg {
+.cadimg-login {
   position: relative;
   width: 75%;
   left: -3%;
@@ -121,7 +125,7 @@ export default {
   margin-bottom: 10%;
   margin-top: 4%;
 }
-/*.btn-voltar{
+/*.btn-voltar-login{
 	background-image: url("../imagens/voltar-icone.png");
 	background-position: center;
     background-repeat: no-repeat;
@@ -134,7 +138,7 @@ export default {
 	width: 8%;
 }*/
 
-.btn-voltar {
+.btn-voltar-login {
   background-image: url(../_imagens/letreca/voltar-icone.png);
   background-position: center;
   background-repeat: no-repeat;

@@ -3,14 +3,14 @@
 
 <div class="container">
   <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
+  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
   <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
 
-  <div class="container2">
+  <div class="container2-contexto">
     <div class="row">
       <div class="col-sm">
         <a class="btn btn-voltar" href="/#/" role="button" placeholder="Digite o nome do contexto"></a>
-        <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
+        <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
       </div>
     </div> 
   </div>
@@ -136,13 +136,13 @@ export default {
 }
 
 
-/*.cadimg{
+/*.cadimg-contexto{
 	position: absolute;
 	width: 100%;
 	top: 0%;
 	left: 0%;
 }*/
-.cadimg{
+.cadimg-contexto{
 	position: relative;
 	width: 75%;
 	left: -3%;
