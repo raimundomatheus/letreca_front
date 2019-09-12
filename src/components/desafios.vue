@@ -77,6 +77,7 @@ export default {
   created: function() {
     let cat = this.$route.params.id;
     let url = "http://localhost:3000/desafios/"+cat+"/contexto";
+    console.log(cat);
 
     axios
       .get(url)

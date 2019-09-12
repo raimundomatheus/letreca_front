@@ -51,7 +51,7 @@ export default new Router({
     },
 
     {
-      path: '/engine/',
+      path: '/engine/:id',
       name: 'engine',
       component: engine
     },

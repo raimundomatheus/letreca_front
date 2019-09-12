@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-auto" v-for="contexto in contextos" :key="contexto.id">
           <div class="card itens" style="width: 10rem;">
-            <a href="/#/engine"> 
+            <a href="#" @click="()=>ver(contexto.id)">
             <img v-bind:src="contexto.imagem" class="card-img-top" alt="Imagem de capa do card"> 
             </a>
             <div class="card-body body">
@@ -105,6 +105,10 @@ export default {
         alert("Você está logado");
       });
       e.preventDefault();
+    },
+
+    ver: function(id){
+      this.$router.push("/engine/"+id)
     },
 
     comprar: function(){

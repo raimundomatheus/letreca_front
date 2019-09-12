@@ -5,13 +5,13 @@
     <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a>-->
 
     <div class="alert alert-success" role="alert" v-show="winner">
-      <a class="btn btn-voltar" href="#/" v-on:click="repeatGame()"></a>
-      <a class="btn btn-repeat" href="#/engine/" v-on:click="repeatGame()"></a>
+      <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
+      <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
       <strong>Parabéns!</strong> Você finalizou o jogo!
     </div>
     <div class="alert alert-warning" role="alert" v-show="looser">
-      <a class="btn btn-repeat" href="#/engine/" v-on:click="repeatGame()"></a>
-      <a class="btn btn-voltar" href="#/" v-on:click="repeatGame()"></a>
+      <a class="btn btn-voltar" href="#/contextos" v-on:click="repeatGame()"></a>
+      <a class="btn btn-repeat" href="#" v-on:click="repeatGame()"></a>
       <strong>Oh Oh!</strong> Infelizmente não foi dessa vez!
     </div>
 
@@ -567,10 +567,12 @@ export default {
   },
 
   created: function() {
-    let cat = this.$route.params.contexto;
-    let url = "http://localhost:3000/desafios";
+    let cat = this.$route.params.id;
+    console.log(cat);
+    let url = "http://localhost:3000/desafios/"+cat+"/contexto";
     if (cat !== undefined) {
-      url += cat;
+      //url += cat;
+      console.log(url);
     }
     axios
       .get(url)
@@ -682,7 +684,7 @@ export default {
     repeatGame: function() {
       Object.assign(this.$data, this.$options.data.call(this));
       let cat = this.$route.params.id;
-      let url = "http://localhost:3000/desafios";
+      let url = "http://localhost:3000/desafios/"+cat+"/contexto";
       if (cat !== undefined) {
         //url += cat;
       }
