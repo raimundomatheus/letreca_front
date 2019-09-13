@@ -23,9 +23,9 @@
     </form>-->
 
     <div class="row life">
-      <div class="col" id="score">
+      <!-- <div class="col" id="score">
         <div class="scores">{{scores}}</div>
-      </div>
+      </div> -->
       <div class="col-auto ac" v-for="n in 6" :key="n">
         <div class="vida">
           <img
