@@ -19,25 +19,25 @@
       </div>
     </div>
 
-    <div id="cadastro" class="content-cadastro">
+    <div id="cadastro" class="content-cadastro-contexto">
 
         <p>
-          <label class="ctb" id="nome" for="nome"> </label>
+          <label class="ctuser" id="nome" for="nome"> </label>
           <input class="inp" type="text" v-model="register.nome" required="required" name="nome_usuario" placeholder="Digite seu nome" />
         </p>
         
         <p>
-          <label class="ctc" id="email" for="email"> </label>
+          <label class="cyuser" id="email" for="email"> </label>
           <input class="inp" type="email" v-model="register.email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
         </p>
 
         <p>
-          <label class="ctd" id="senha" for="senha"></label>
+          <label class="cduser" id="senha" for="senha"></label>
           <input class="inp" v-model="register.senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
         </p>
 
         <p class="btn_user" @click='signup'>
-          <input class="btn_caduser" type="submit" value=""/>
+          <input class="btn_caduser" v-model="register.especial" required="required" type="submit" value=""/>
         </p>
 
     </div>
@@ -59,7 +59,8 @@ export default {
       register: {
         nome: "",
         email: "",
-        senha: ""
+        senha: "",
+        especial: "1"
       }
     }
   },
@@ -80,9 +81,8 @@ export default {
 
     },
 
-    buscar: function() {
-      alert("Usuário Cadastrado");
-      this.$router.push("/login/");
+    terms: function() {
+      this.$router.push("/cadastroUsuario/");
     }
   }
 };
@@ -152,7 +152,7 @@ export default {
   left: -8%;
 }
 
-.content-cadastro {
+.content-cadastro-contexto {
   position: relative;
   background-color: #fff;
   height: 50%;
@@ -221,7 +221,7 @@ export default {
   margin-bottom: 6%;
 }
 
-.ctb {
+.ctuser {
   background-image: url(../_imagens/letreca/nome.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -245,7 +245,7 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-.ctc {
+.cyuser {
   background-image: url(../_imagens/letreca/email.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -269,7 +269,7 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-.ctd {
+.cduser {
   background-image: url(../_imagens/letreca/senha.png);
   background-position: center;
   background-repeat: no-repeat;

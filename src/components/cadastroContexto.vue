@@ -22,7 +22,7 @@
     <div id="cadastro" class="content-cadastro">
       <form @submit="checkform" method="post" action>
 
-        <label class="ctb" for="">
+        <label class="cacontexto" for="">
         </label>
 
         <input
@@ -34,7 +34,7 @@
           placeholder="Digite aqui o nome do contexto"
         />
         
-        <label class="ctc" for="">
+        <label class="cbcontexto" for="">
         </label>
 
         <img
@@ -279,7 +279,7 @@ export default {
   margin-bottom: 6%;
 }
 
-.ctb {
+.cacontexto {
   background-image: url(../_imagens/letreca/nome-do-contexto.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -303,7 +303,7 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-.ctc {
+.cbcontexto {
   background-image: url(../_imagens/letreca/img-do-contexto.jpg);
   background-position: center;
   background-repeat: no-repeat;
