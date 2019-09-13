@@ -141,7 +141,7 @@ export default {
 }*/
 
 .btn-voltar-caduser {
-  background-image: url(../_imagens/letreca/voltar-icone.png);
+  background-image: url(../_imagens/letreca/return.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;

@@ -3,14 +3,14 @@
 
 <div class="container">
   <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
-  <a class="btn btn-voltar" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
+  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-desafios" alt="Imagem responsiva">
+  <a class="btn btn-voltar-desafios" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
 
   <div class="container2">
     <div class="row">
       <div class="col-sm">
-        <a class="btn btn-voltar" href="/#/editarContexto" role="button" placeholder="Digite o nome do contexto"></a>
-        <img src="../_imagens/letreca/desafios.jpg" class="img-fluid cadimg" alt="Imagem responsiva">
+        <a class="btn btn-voltar-desafios" href="/#/editarContexto" role="button" placeholder="Digite o nome do contexto"></a>
+        <img src="../_imagens/letreca/desafios.jpg" class="img-fluid cadimg-desafios" alt="Imagem responsiva">
       </div>
     </div> 
   </div>
@@ -170,7 +170,7 @@ export default {
 	top: 0%;
 }
 
-/*.cadimg{
+/*.cadimg-desafios{
 	position: absolute;
 	width: 100%;
 	top: 0%;
@@ -181,13 +181,13 @@ export default {
 	overflow-y: auto;
 }
 
-.cadimg{
+.cadimg-desafios{
 	position: relative;
 	width: 75%;
 	left: -3%;
 }
 
-/*.btn-voltar{
+/*.btn-voltar-desafios{
 	background-image: url("../imagens/voltar-icone.png");
 	background-position: center;
     background-repeat: no-repeat;
@@ -200,8 +200,8 @@ export default {
 	width: 8%;
 }*/
 
-.btn-voltar{
-	background-image: url(../_imagens/letreca/voltar-icone.png);
+.btn-voltar-desafios{
+	background-image: url(../_imagens/letreca/return.png);
 	background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
