@@ -23,12 +23,12 @@
       <form @submit="checkform" method="post" action="">
         
         <p>
-          <label class="ctc" id="email" for="email_login"> </label>
+          <label class="ctlogin" id="email" for="email_login"> </label>
           <input class="inp" type="email" v-model="email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
         </p>
 
         <p>
-          <label class="ctb" id="senha_login" for="senha"></label>
+          <label class="cylogin" id="senha_login" for="senha"></label>
           <input class="inp" v-model="senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
         </p>
 
@@ -219,7 +219,7 @@ export default {
   margin-bottom: 6%;
 }
 
-.ctb {
+.cylogin {
   background-image: url(../_imagens/letreca/senha.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -243,7 +243,7 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-.ctc {
+.ctlogin {
   background-image: url(../_imagens/letreca/email.png);
   background-position: center;
   background-repeat: no-repeat;
