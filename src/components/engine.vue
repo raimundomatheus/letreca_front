@@ -10,14 +10,18 @@
       <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
       <a class="btn btn-home-engine" href="/index" v-on:click="repeatGame()"></a>
       <p>Parabéns! Você finalizou o jogo!</p>
-      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div>
+      <div class="scores">
+        <p>Sua pontuação final foi: {{scores}} Pontos</p>
+      </div>
     </div>
     <div class="alert alert-warning" role="alert" v-show="looser">
       <a class="btn btn-voltar-engine" href="#/contextos" v-on:click="repeatGame()"></a>
       <a class="btn btn-repeat-engine" href="#" v-on:click="repeatGame()"></a>
       <a class="btn btn-home-engine" href="/index" v-on:click="repeatGame()"></a>
-      <p>Oh Oh! Infelizmente não foi dessa vez! </p>
-      <div class="scores"><p>Sua pontuação final foi: {{scores}} Pontos</p></div> 
+      <p>Oh Oh! Infelizmente não foi dessa vez!</p>
+      <div class="scores">
+        <p>Sua pontuação final foi: {{scores}} Pontos</p>
+      </div>
     </div>
 
     <!-- <form class="lista" method="post" accept-charset="utf-8">
@@ -28,7 +32,7 @@
     <div class="row life">
       <!-- <div class="col" id="score">
         <div class="scores">{{scores}}</div>
-      </div> -->
+      </div>-->
       <div class="col-auto ac" v-for="n in 6" :key="n">
         <div class="vida">
           <img
@@ -95,7 +99,11 @@
     </div>
 
     <div class="container2">
-      <img src="../_imagens/letreca/paisagem2.png" class="img-fluid cadimg-engine" alt="Imagem responsiva" />
+      <img
+        src="../_imagens/letreca/paisagem2.png"
+        class="img-fluid cadimg-engine"
+        alt="Imagem responsiva"
+      />
     </div>
 
     <div class="row container-teclado">
@@ -107,10 +115,14 @@
             role="button"
             v-on:click="addLetter('A', $event)"
             style="position: relative; font-size: 1.8rem; left: 0%"
-          >A</a>
+          >
+            A
+          </a>
         </div>
       </div>
-
+<audio src="405opfuk0mwgwag.mp3" controls="controls">
+          <source type="audio/mp3">
+        </audio>
       <div class="col-auto" style="width: 3.5rem">
         <div class="teclas teclado" style="width: 3rem">
           <a
@@ -547,7 +559,7 @@
 /* eslint-disable */
 import axios from "axios";
 import { constants } from "crypto";
-import { create } from 'domain';
+import { create } from "domain";
 
 export default {
   template: "#engine",
@@ -566,15 +578,18 @@ export default {
       filterGrayScale: "",
       contHeart: 6,
       imgChallenge: "",
-      rounds: 0, 
-      scores: 0,
+      rounds: 0,
+      scores: 0
     };
   },
 
   created: function() {
     let cat = this.$route.params.id;
     console.log(cat);
-    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
+    let url =
+      "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/" +
+      cat +
+      "/contexto";
     if (cat !== undefined) {
       //url += cat;
       console.log(url);
@@ -582,32 +597,27 @@ export default {
     axios
       .get(url)
       .then(response => {
-        for(let i=0;i<response.data.length;i++){
+        for (let i = 0; i < response.data.length; i++) {
           this.words.push(response.data[i].nome);
-          this.images.push(response.data[i].imagem); 
+          this.images.push(response.data[i].imagem);
         }
         this.newGame();
       })
       .catch(e => {
         console.log(e);
-      });    
-
+      });
   },
 
   methods: {
     selectWord: function() {
+      if (this.words.length > 0) {
+        var indexRandom = Math.floor(Math.random() * this.words.length);
 
-      if(this.words.length>0){
-        var indexRandom = Math.floor(Math.random() * (this.words.length));
-
-        this.word = this.words[
-          indexRandom
-        ].toUpperCase().split("");
+        this.word = this.words[indexRandom].toUpperCase().split("");
         this.imgChallenge = this.images[indexRandom];
         this.words.splice(indexRandom, 1);
         this.images.splice(indexRandom, 1);
       }
-    
     },
 
     newGame: function() {
@@ -622,8 +632,8 @@ export default {
       this.contHeart = 6;
 
       document.querySelectorAll("img.img-fluid").forEach(function(el, index) {
-          el.style = "filter: grayscale(10%)";
-      });    
+        el.style = "filter: grayscale(10%)";
+      });
       document.querySelectorAll("a.btn-default").forEach(function(el, index) {
         el.classList.remove("disabled");
       });
@@ -642,8 +652,16 @@ export default {
       });
       return changed;
     },
+
+    readySound: function(){
+      this.$refs.audio.play();
+    },
+
     addLetter: function(letter, event) {
       event.target.classList.add("disabled");
+      var letter_sound = event.target.querySelector('audio');
+      this.readySound();
+      
       if (!this.makeGuess(letter)) {
         if (this.wrongLetters.indexOf(letter) < 0) {
           this.wrongLetters.push(letter);
@@ -658,61 +676,66 @@ export default {
     shouldFinishGame: function() {
       if (this.gameWord.indexOf("#") < 0) {
         this.rounds += 1;
-        this.scores += 10; 
-        if(this.rounds >= 5){
-          document.querySelectorAll("a.btn-default").forEach(function(el, index) {
-            el.classList.add("disabled");
-          });
+        this.scores += 10;
+        if (this.rounds >= 5) {
+          document
+            .querySelectorAll("a.btn-default")
+            .forEach(function(el, index) {
+              el.classList.add("disabled");
+            });
           this.winner = true;
         } else {
           this.nextChallenge();
           //alert("Next round")
         }
-        
       } else if (!this.hasGuessers()) {
         this.rounds += 1;
-        if(this.rounds >= 5){
-          document.querySelectorAll("a.btn-default").forEach(function(el, index) {
-            el.classList.add("disabled");
-          });
+        if (this.rounds >= 5) {
+          document
+            .querySelectorAll("a.btn-default")
+            .forEach(function(el, index) {
+              el.classList.add("disabled");
+            });
           this.looser = true;
         } else {
-            this.nextChallenge();
-            alert("Errou!");
+          this.nextChallenge();
+          alert("Errou!");
         }
       }
     },
 
-    nextChallenge: function(){
+    nextChallenge: function() {
       this.newGame();
     },
 
     repeatGame: function() {
       Object.assign(this.$data, this.$options.data.call(this));
       let cat = this.$route.params.id;
-      let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
+      let url =
+        "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/" +
+        cat +
+        "/contexto";
       if (cat !== undefined) {
         //url += cat;
       }
       axios
         .get(url)
         .then(response => {
-          for(let i=0;i<response.data.length;i++){
+          for (let i = 0; i < response.data.length; i++) {
             this.words.push(response.data[i].nome);
-            this.images.push(response.data[i].imagem); 
-            
+            this.images.push(response.data[i].imagem);
           }
           this.newGame();
         })
         .catch(e => {
           console.log(e);
-        });  
+        });
     },
 
     wrongHeart: function() {
       this.$refs.heartL[this.contHeart - 1].style = "filter: grayscale(90%)";
       this.contHeart -= 1;
-    },
+    }
   }
 };
 </script>
@@ -788,54 +811,54 @@ export default {
   top: 29%;
 }
 
-.btn-voltar-engine{
-	background-image: url(../_imagens/letreca/return.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: absolute;
-	width: 7%;
-	height: 3rem;
-	z-index: 2;
+.btn-voltar-engine {
+  background-image: url(../_imagens/letreca/return.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 7%;
+  height: 3rem;
+  z-index: 2;
   left: 1%;
   top: 1.5rem;
 }
 
-.btn-repeat-engine{
-	background-image: url(../_imagens/letreca/repetir.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: absolute;
-	width: 7%;
-	height: 3rem;
-	z-index: 2;
+.btn-repeat-engine {
+  background-image: url(../_imagens/letreca/repetir.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 7%;
+  height: 3rem;
+  z-index: 2;
   left: 8.7%;
   top: 1.5rem;
 }
 
-.btn-home-engine{
-	background-image: url(../_imagens/letreca/home.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: absolute;
-	width: 7%;
-	height: 3rem;
-	z-index: 2;
+.btn-home-engine {
+  background-image: url(../_imagens/letreca/home.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 7%;
+  height: 3rem;
+  z-index: 2;
   left: 16.1%;
   top: 1.5rem;
 }
 
-.btn-home2-engine{
-	background-image: url(../_imagens/letreca/home.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: absolute;
-	width: 7%;
-	height: 3rem;
-	z-index: 2;
+.btn-home2-engine {
+  background-image: url(../_imagens/letreca/home.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 7%;
+  height: 3rem;
+  z-index: 2;
   left: 1rem;
   top: 1rem;
 }
@@ -862,21 +885,21 @@ export default {
 }
 
 .alert-success {
-    position: absolute !important;
-    width: 95.5% !important;
-    z-index: 99999 !important;
+  position: absolute !important;
+  width: 95.5% !important;
+  z-index: 99999 !important;
 }
 
-.alert-warning{
-    position: absolute !important;
-    width: 95.5% !important;
-    z-index: 99999 !important;
+.alert-warning {
+  position: absolute !important;
+  width: 95.5% !important;
+  z-index: 99999 !important;
 }
 @media (min-width: 700px) {
   .container {
     max-width: 700px;
   }
-  
+
   .container3 {
     width: 40%;
     left: 50%;
@@ -893,15 +916,15 @@ export default {
     left: 49%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -958,15 +981,15 @@ export default {
     left: 43%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1019,15 +1042,15 @@ export default {
     left: 43%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1080,15 +1103,15 @@ export default {
     left: 43%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1125,7 +1148,7 @@ export default {
     font-size: 1.5rem !important;
   }
 
-    .container3 {
+  .container3 {
     width: 40%;
     left: 30%;
     top: 30%;
@@ -1141,15 +1164,15 @@ export default {
     left: 9%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1186,7 +1209,7 @@ export default {
     font-size: 1.5rem !important;
   }
 
-    .container3 {
+  .container3 {
     width: 40%;
     left: 30%;
     top: 30%;
@@ -1202,15 +1225,15 @@ export default {
     left: 9%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1222,7 +1245,6 @@ export default {
     top: 5rem;
   }
 }
-
 
 @media (max-width: 465px) {
   .container {
@@ -1245,15 +1267,15 @@ export default {
     left: 9%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1264,7 +1286,6 @@ export default {
     padding-left: 2.5%;
     top: 5rem;
   }
-
 }
 
 @media (max-width: 399px) {
@@ -1308,15 +1329,15 @@ export default {
     left: 12%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
@@ -1360,19 +1381,18 @@ export default {
     left: 10%;
   }
 
-  .teclado{
+  .teclado {
     width: 2.5rem !important;
     height: 2.5rem;
   }
 
-  .btn-default{
+  .btn-default {
     font-size: 1.2rem !important;
   }
-  
+
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
   }
-
 }
 </style>
