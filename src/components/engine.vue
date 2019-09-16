@@ -874,7 +874,7 @@ export default {
 }
 @media (min-width: 700px) {
   .container {
-    max-width: 700px;
+    max-width: 700px !important;
   }
   
   .container3 {

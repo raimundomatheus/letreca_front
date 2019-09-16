@@ -109,8 +109,12 @@ export default {
     axios
       .get(url)
       .then(response => {
-        console.log(response.data);
-        this.contextos = response.data;
+        console.log(response.data.length);
+        for(var i = 0; i < response.data.length; i++){
+        	console.log(response.data);
+        	return this.contextos = response.data;
+        }
+        
       })
       .catch(e => {
         console.log("erro");
@@ -310,13 +314,13 @@ export default {
 
 @media (min-width: 700px) {
     .container{
-        max-width: 700px;
+        max-width: 700px !important;
     }
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: 700px;
+    max-width: 700px !important;
   }
 }
 
