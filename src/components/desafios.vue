@@ -19,7 +19,7 @@
     <div class="container-v3">
       <div class="row">
         <div class="col-auto" v-for="(item, index) in desafios" :key="index.id">
-          <div class="card itens" style="width: 8rem;">
+          <div class="card itens ybbb" style="width: 8rem;">
             <img v-bind:src="item.imagem" class="card-img-top" alt="Imagem de capa do card">
               <div class="card-body body">
                 <h5 class="card-title text" style="text-align: center;">{{item.nome}}</h5>
@@ -265,6 +265,15 @@ export default {
 @media (min-width: 576px) {
   .container {
     max-width: 700px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
+  }
+  .ybbb{
+    width: 9rem !important;
   }
 }
 </style>

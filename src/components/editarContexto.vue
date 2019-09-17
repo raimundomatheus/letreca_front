@@ -20,7 +20,7 @@
       <form @submit="checkform" method="delete" action>
         <div class="row">
           <div class="col-auto" v-for="(item, index) in contextos" :key="index.id">
-            <div class="card itens" style="width: 10rem;">
+            <div class="card itens yttt" style="width: 10rem;">
               <img v-bind:src="item.imagem" class="card-img-top" alt="Imagem de capa do card">
               <div class="card-body body">
                 <h5 class="card-title text" style="text-align: center;">{{item.nome}}</h5>
@@ -324,5 +324,13 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
+  }
+  .yttt{
+    width: 11rem !important;
+  }
+}
 
 </style>

@@ -227,5 +227,11 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
+  }
+}
+
 
 </style>

@@ -1,13 +1,56 @@
 <template id="index">
    <!--eslint-disable-->
-    <div class="container principal">
-        <!--<img src="../_imagens/letreca/letreca2.jpg" class="img-fluid im" alt="Imagem responsiva">-->
-        <a class="btn play" href="/#/contextos" role="button"></a>
-        <a class="btn config" href="/#/login" role="button"></a>
-        
+    <div class="container">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <div class="scroll" style="width: 95%; height: 70%; top: 4rem; position: relative; left:2rem">
+            <div class="texto" style="width: 100%; height: 80%; top: 2rem; position: relative;">
+                <p style="color: #fff; font-size: 2rem">Olá visitante!</p>
+                <p style="color:#fff">Seja bem vindo ao "Letreca", um software educacional para auxiliar no processo de alfabetização.</p>
+                <p style="text-align: left; color: #fff">
+                    Professores, pais ou responsáveis poderão se cadastrar no sistema e esperar que
+                    algum administrador aprove o seu cadastro, ou se preferirem pode solicitar
+                    imediatamente a aprovação do seu cadastro entrando em contato com algum
+                    administrador por algum meio de comunicação disponível no sistema. A aprovação do
+                    cadastro se dá a partir de um formulário, que se encontra disponível no endereço:
+                    &lt;<a target="_blank" href="https://forms.gle/BoWbZmcwwFiutimo8">LINK</a>&gt; e que pode ser preenchido diretamente
+
+                    pelos professores, pais ou responsáveis, ou que pode ser recebido pelo usuário via e-mail. 
+                    Após ter seu cadastro aprovado poderão ter acesso ao cadastro de contextos e
+                    desafios podendo adicionar palavras, imagens e áudios que serão reproduzidos ao
+                    acertar o nome da palavra quando estiver jogando.
+                </p>
+                <p style="color: #fff; font-size: 2rem">Termo de responsabilidade</p>
+                <p style="text-align: left; color: #fff">
+                    <i class="material-icons">
+                        check_circle
+                    </i> Ao se cadastrar no Letreca você está ciente dos termos de responsabilidade. <br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> O Letreca é um software educacional criado para auxiliar a alfabetização, 
+                        qualquer contexto/desafio inapropriado resultará no banimento da conta do usuário que o cadastrou.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários cadastrados com e-mail inexistente não terão a conta aprovada.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários que fizerem o cadastro, mas não responderem o formulario obrigatório não terão a conta aprovada.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários que não se identificarem corretamente não terão a conta aprovada.
+                </p>
+            </div>
+        </div>
         <div id="links-fixos" class="pulsate-fwd btt" style="padding:5px; position:fixed; bottom: 1rem;" >
-          <a href="/#/info" >
-            <img class="icon heartbeat" src="../_imagens/letreca/info.png" style="width: 5%; top: 1.10rem; position: fixed;">
+          <a href="/#/" >
+            <img class="icon" src="../_imagens/letreca/home.png" style="width: 5%; top: 1.10rem; position: fixed;">
+          </a>
+        </div>  
+        <div id="links-fixos" class="pulsate-fwd btt" style="width: 100%; height: 11%; position:relative; bottom: 1rem; top:6rem" >
+          <a target="_blank" href="https://api.whatsapp.com/send?phone=5583986601370&text=Ol%C3%A1" >
+            <img class="icon heartbeat" src="../_imagens/letreca/whats_icon.png" style="width: 8%;">
+          </a>
+          <a target="_blank" href="https://mail.google.com/mail/u/1/#inbox?compose=new">
+            <img class="icon heartbeat" src="../_imagens/letreca/email-icon.png" style="width: 8%;">
           </a>
         </div>
     </div>
@@ -61,43 +104,9 @@ export default {
   height: 650px;
 }
 
-.principal{
-  background-image: url(../_imagens/letreca/letreca2.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 85%;
-}
-
-.play{
-	background-image: url(../_imagens/letreca/play1.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: absolute;
-	left: 38%;
-	top: 70%;
-	border: none;
-	height: 10%;
-	width: 10%;
-	background-color: #2196f3 !important;
-}
-
-.config{
-	background-image: url(../_imagens/letreca/config.png);
-	background-position: center;
-  background-repeat: no-repeat;
-  background-size: 85%;
-	position: absolute;
-	left: 50%;
-	top: 70%;
-	height: 10%;
-	width: 10%;
-	background-color: #267cb5 !important;
-}
-
-.im{
-	position: relative;
-	left: 0%;
+.scroll{
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .heartbeat {
@@ -186,26 +195,16 @@ export default {
   }
 }
 
+@media (max-width: 360px){
+
+}
+
+@media (max-width: 499px){
+
+}
+
 @media (max-width: 574px){
-  .play{
-    left: 35%;
-    top: 65%;
-    height: 10%;
-    width: 15%;
-  }
-  .config{
-    left: 52%;
-    top: 65%;
-    height: 10%;
-    width: 15%;
-  }
-   .icon{
-      width: 10% !important;
-      left: 15px;
-    }
-    .btt{
-      width: 2rem;
-    }
+
 }
 
 @media (min-width: 576px) {
@@ -223,50 +222,6 @@ export default {
 @media (min-width: 768px) {
   .container{
       max-width: 768px !important;
-  }
-}
-
-@media (max-width: 499px){
-  .play{
-    left: 35%;
-    top: 63%;
-    height: 10%;
-    width: 15%;
-  }
-  .config{
-    left: 52%;
-    top: 63%;
-    height: 10%;
-    width: 15%;
-  }
-  .icon{
-    width: 15% !important;
-    left: 15px;
-  }
-  .btt{
-    width: 2rem;
-  }
-}
-
-@media (max-width: 360px){
-  .play{
-    left: 35%;
-    top: 60%;
-    height: 6%;
-    width: 15%;
-  }
-  .config{
-    left: 52%;
-    top: 60%;
-    height: 6%;
-    width: 15%;
-  }
-   .icon{
-    width: 15% !important;
-    left: 15px;
-  }
-  .btt{
-    width: 2rem;
   }
 }
 

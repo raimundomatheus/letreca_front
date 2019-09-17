@@ -508,15 +508,21 @@ input[type=email]{
   text-align: center;
 }
 
+@media (min-width: 576px) {
+  .container {
+    max-width: 700px !important;
+  }
+}
+
 @media (min-width: 700px) {
   .container {
     max-width: 700px !important;
   }
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 700px !important;
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
   }
 }
 </style>
