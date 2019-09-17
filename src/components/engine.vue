@@ -1154,6 +1154,7 @@ export default {
   width: 95.5% !important;
   z-index: 99999 !important;
 }
+
 @media (min-width: 700px) {
   .container {
     max-width: 700px !important;
@@ -1652,6 +1653,48 @@ export default {
   .col-auto {
     margin-top: 0% !important;
     margin-bottom: 2% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px !important;
+  }
+  
+  .container3 {
+    width: 40%;
+    left: 50%;
+    top: 33%;
+  }
+
+  .palavra {
+    top: 20%;
+    left: 8%;
+  }
+
+  .life {
+    top: 12%;
+    left: 49%;
+  }
+
+  .teclado{
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+
+  .btn-default{
+    font-size: 1.2rem !important;
+  }
+  
+  .col-auto {
+    margin-top: 0% !important;
+    margin-bottom: 2% !important;
+  }
+
+  .container-teclado {
+    background-color: #2a7039;
+    padding-left: 4.5%;
+    top: 1.5rem;
   }
 }
 </style>
