@@ -360,7 +360,7 @@ input[type="file"] {
   width: 13rem;
   border-radius: 5px 5px 5px 5px;
   border: none;
-  background-color: #267cb5;
+  background-color: #267cb5 !important;
   position: relative;
   margin: auto;
   top: 5rem;
@@ -384,7 +384,7 @@ input[type="file"] {
   width: 13rem;
   border-radius: 5px 5px 5px 5px;
   border: none;
-  background-color: #2196f3;
+  background-color: #2196f3 !important;
   position: relative;
   margin: auto;
   top: 0rem;
@@ -510,13 +510,13 @@ input[type=email]{
 
 @media (min-width: 700px) {
   .container {
-    max-width: 700px;
+    max-width: 700px !important;
   }
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: 700px;
+    max-width: 700px !important;
   }
 }
 </style>
