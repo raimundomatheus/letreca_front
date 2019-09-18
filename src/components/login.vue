@@ -61,7 +61,7 @@ import axios from "axios";
 import jquery from "jquery";
 import $ from "jquery";
 import js from "jquery";
-import Axios from 'axios';
+import Axios from "axios";
 
 export default {
   template: "#login",
@@ -82,24 +82,28 @@ export default {
         .post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload)
         .then(response => {
           axios
-          .get("https://app.sisalfa.dcx.ufpb.br/letreca/v1/usuarios")
-          .then(response2 => {
-            console.log(response2.data[0].especial);
-            if (response2.data[0].especial == 1) {
-            alert(
-              "Usuário não tem permissão, entre em contato com administrador do site."
-            );
-            this.$router.push({ name: "index" });
-          } else if (response2.data[0].especial == 2) {
-            let token = response.data.token;
-            window.localStorage.setItem("token", token);
-            console.log(token);
-            this.$router.push({ name: "cadastroContexto" });
-          }
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
+            .get("https://app.sisalfa.dcx.ufpb.br/letreca/v1/usuarios")
+            .then(response2 => {
+              for (let i = 0; i < response2.data.length; i++) {
+                console.log(response2.data[i].especial);
+                 if (this.email == response2.data[i].email && response2.data[i].especial == 1) {
+                  alert(
+                    "Usuário não tem permissão, entre em contato com administrador do site."
+                  );
+                  this.$router.push({ name: "index" });
+                  break;
+                } else if (this.email == response2.data[i].email && response2.data[i].especial == 2) {
+                  let token = response.data.token;
+                  window.localStorage.setItem("token", token);
+                  console.log(token);
+                  this.$router.push({ name: "cadastroContexto" });
+                  break;
+                }
+              }
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
         })
         .catch(function(error) {
           console.log(error);
