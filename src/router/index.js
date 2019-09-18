@@ -9,6 +9,7 @@ import contextos from '@/components/contextos'
 import engine from '@/components/engine'
 import cadastroUsuario from '@/components/cadastroUsuario'
 import login from '@/components/login'
+import info from '@/components/info'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: info
     }
 
   ]

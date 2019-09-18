@@ -1,0 +1,228 @@
+<template id="index">
+   <!--eslint-disable-->
+    <div class="container">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <div class="scroll" style="width: 95%; height: 70%; top: 4rem; position: relative; left:2rem">
+            <div class="texto" style="width: 100%; height: 80%; top: 2rem; position: relative;">
+                <p style="color: #fff; font-size: 2rem">Olá visitante!</p>
+                <p style="color:#fff">Seja bem vindo ao "Letreca", um software educacional para auxiliar no processo de alfabetização.</p>
+                <p style="text-align: left; color: #fff">
+                    Professores, pais ou responsáveis poderão se cadastrar no sistema e esperar que
+                    algum administrador aprove o seu cadastro, ou se preferirem pode solicitar
+                    imediatamente a aprovação do seu cadastro entrando em contato com algum
+                    administrador por algum meio de comunicação disponível no sistema. A aprovação do
+                    cadastro se dá a partir de um formulário, que se encontra disponível no endereço:
+                    &lt;<a target="_blank" href="https://forms.gle/BoWbZmcwwFiutimo8">LINK</a>&gt; e que pode ser preenchido diretamente
+
+                    pelos professores, pais ou responsáveis, ou que pode ser recebido pelo usuário via e-mail. 
+                    Após ter seu cadastro aprovado poderão ter acesso ao cadastro de contextos e
+                    desafios podendo adicionar palavras, imagens e áudios que serão reproduzidos ao
+                    acertar o nome da palavra quando estiver jogando.
+                </p>
+                <p style="color: #fff; font-size: 2rem">Termo de responsabilidade</p>
+                <p style="text-align: left; color: #fff">
+                    <i class="material-icons">
+                        check_circle
+                    </i> Ao se cadastrar no Letreca você está ciente dos termos de responsabilidade. <br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> O Letreca é um software educacional criado para auxiliar a alfabetização, 
+                        qualquer contexto/desafio inapropriado resultará no banimento da conta do usuário que o cadastrou.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários cadastrados com e-mail inexistente não terão a conta aprovada.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários que fizerem o cadastro, mas não responderem o formulario obrigatório não terão a conta aprovada.<br>
+                    <i class="material-icons">
+                        check_circle
+                    </i> Usuários que não se identificarem corretamente não terão a conta aprovada.
+                </p>
+            </div>
+        </div>
+        <div id="links-fixos" class="pulsate-fwd btt" style="padding:5px; position:fixed; bottom: 1rem;" >
+          <a href="/#/" >
+            <img class="icon" src="../_imagens/letreca/home.png" style="width: 5%; top: 1.10rem; position: fixed;">
+          </a>
+        </div>  
+        <div id="links-fixos" class="pulsate-fwd btt" style="width: 100%; height: 11%; position:relative; bottom: 1rem; top:6rem" >
+          <a target="_blank" href="https://api.whatsapp.com/send?phone=5583986601370&text=Ol%C3%A1" >
+            <img class="icon heartbeat" src="../_imagens/letreca/whats_icon.png" style="width: 8%;">
+          </a>
+          <a target="_blank" href="https://mail.google.com/mail/u/1/#inbox?compose=new">
+            <img class="icon heartbeat" src="../_imagens/letreca/email-icon.png" style="width: 8%;">
+          </a>
+        </div>
+    </div>
+</template>
+
+<script>
+/* eslint-disable */
+import axios from "axios";
+
+export default {
+  template: "#index",
+  data() {
+    return {
+      email: "",
+      senha: ""
+    };
+  },
+
+  methods: {
+    checkform: function(e) {
+      let payload = {
+        email: this.email,
+        senha: this.senha
+      };
+
+      axios.post("http://localhost:3000/login", payload).then(response => {
+        let token = response.data.token;
+        window.localStorage.setItem("token", token);
+        alert("Você está logado");
+      });
+      e.preventDefault();
+    },
+
+    ver: function(categoria) {
+      this.$router.push("/teste/");
+    },
+
+  }
+};
+</script>
+
+<style>
+/* eslint-disable */
+.container{
+	position: relative;
+	border: 2px solid;
+	border-color: #A8D500;
+	border-radius: 1%;
+	box-shadow: 5px 5px;
+	background-color: #A8D500;
+  height: 650px;
+}
+
+.scroll{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-9-16 19:56:50
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@media (max-width: 360px){
+
+}
+
+@media (max-width: 499px){
+
+}
+
+@media (max-width: 574px){
+
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 700px !important;
+  }
+}
+
+@media (min-width: 700px) {
+  .container{
+      max-width: 700px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
+  }
+}
+
+</style>

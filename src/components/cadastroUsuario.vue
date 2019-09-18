@@ -489,4 +489,10 @@ input[type=email]{
     max-width: 700px !important;
   }
 }
+
+@media (min-width: 768px) {
+  .container{
+      max-width: 768px !important;
+  }
+}
 </style>
