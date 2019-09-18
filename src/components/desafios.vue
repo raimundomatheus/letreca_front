@@ -90,20 +90,20 @@ export default {
       });
   },
 
-  updated: function(l, a) {
-    let cat = this.$route.params.id;
-    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
+  // updated: function(l, a) {
+  //   let cat = this.$route.params.id;
+  //   let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/desafios/"+cat+"/contexto";
 
-    axios
-      .get(url)
-      .then(response => {
-        console.log(response.data);
-        this.desafios = response.data;
-      })
-      .catch(e => {
-        console.log("erro");
-      });
-  },
+  //   axios
+  //     .get(url)
+  //     .then(response => {
+  //       console.log(response.data);
+  //       this.desafios = response.data;
+  //     })
+  //     .catch(e => {
+  //       console.log("erro");
+  //     });
+  // },
 
   methods: {
     checkform: function(e) {
