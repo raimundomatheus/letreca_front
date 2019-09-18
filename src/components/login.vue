@@ -89,6 +89,7 @@ export default {
             alert(
               "Usuário não tem permissão, entre em contato com administrador do site."
             );
+            this.$router.push({ name: "index" });
           } else if (response2.data[0].especial == 2) {
             let token = response.data.token;
             window.localStorage.setItem("token", token);
