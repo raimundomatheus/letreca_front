@@ -14,6 +14,7 @@ import info from '@/components/info'
 Vue.use(Router)
 
 export default new Router({
+  /* eslint-disable */
   routes: [
     {
       path: '/',
@@ -24,31 +25,85 @@ export default new Router({
     {
       path: '/cadastroContexto',
       name: 'cadastroContexto',
-      component: cadastroContexto
+      component: cadastroContexto,
+      beforeEnter: (to, from, next) => {
+        if (window.localStorage.getItem('token')) {
+          next()
+        } else {
+          alert('Usuário não tem permissão.')
+          next({
+            path: '/login',
+            query: { redirect: to.fullPath }
+          })
+        }
+
+      }
     },
 
     {
       path: '/desafios/:id',
       name: 'desafios',
-      component: desafios
+      component: desafios,
+      beforeEnter: (to, from, next) => {
+        if (window.localStorage.getItem('token')) {
+          next()
+        } else {
+          alert('Usuário não tem permissão.')
+          next({
+            path: '/login',
+            query: { redirect: to.fullPath }
+          })
+        }
+
+      }
     },
 
     {
       path: '/cadastroDesafio',
       name: 'cadastroDesafio',
-      component: cadastroDesafio
+      component: cadastroDesafio,
+      beforeEnter: (to, from, next) => {
+        if (window.localStorage.getItem('token')) {
+          next()
+        } else {
+          alert('Usuário não tem permissão.')
+          next({
+            path: '/login',
+            query: { redirect: to.fullPath }
+          })
+        }
+      }
     },
 
     {
       path: '/editarContexto',
       name: 'editarContexto',
-      component: editarContexto
+      component: editarContexto,
+      beforeEnter: (to, from, next) => {
+        if (window.localStorage.getItem('token')) {
+          next()
+        } else {
+          alert('Usuário não tem permissão.')
+          next({
+            path: '/login',
+            query: { redirect: to.fullPath }
+          })
+        }
+
+      }
     },
 
     {
       path: '/contextos',
       name: 'contextos',
       component: contextos
+      // beforeEnter: (to, from, next) => {
+      //   alert("oi")
+      //   if(window.localStorage.getItem('token')){
+      //     next()
+      //   }
+
+      // }
     },
 
     {

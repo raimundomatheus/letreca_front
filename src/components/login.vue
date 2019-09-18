@@ -20,24 +20,36 @@
     </div>
 
     <div id="login" class="content-cadastro">
-      <form @submit="checkform" method="post" action="">
-        
+      <form @submit="checkform" method="post" action>
         <p>
-          <label class="ctlogin" id="email" for="email_login"> </label>
-          <input class="inp" type="email" v-model="email" required="required" name="email_usuario" placeholder="Digite seu e-mail" />
+          <label class="ctlogin" id="email" for="email_login"></label>
+          <input
+            class="inp"
+            type="email"
+            v-model="email"
+            required="required"
+            name="email_usuario"
+            placeholder="Digite seu e-mail"
+          />
         </p>
 
         <p>
           <label class="cylogin" id="senha_login" for="senha"></label>
-          <input class="inp" v-model="senha" required="required" type="password" placeholder="********" style="margin-top: 1rem">
+          <input
+            class="inp"
+            v-model="senha"
+            required="required"
+            type="password"
+            placeholder="********"
+            style="margin-top: 1rem"
+          />
         </p>
 
         <p class="btn_login">
-          <input class="btn_fzrlogin" type="submit" value=""/>
+          <input class="btn_fzrlogin" type="submit" value />
         </p>
-                     
-        <a id="cad" href="/#/cadastroUsuario">Quero me cadastrar!</a>
 
+        <a id="cad" href="/#/cadastroUsuario">Quero me cadastrar!</a>
       </form>
     </div>
   </div>
@@ -45,40 +57,58 @@
 
 <script>
 /* eslint-disable */
-import axios from "axios"
-import jquery from "jquery"
-import $ from "jquery"
-import js from "jquery"
+import axios from "axios";
+import jquery from "jquery";
+import $ from "jquery";
+import js from "jquery";
+import Axios from 'axios';
 
 export default {
-    template: "#login",
-    data() {
-       return {
-        email: "",
-        senha: ""
-        };
-    },
-    methods:{
-        checkform: function (e) {
-            let payload = {
-                    email: this.email,
-                    senha: this.senha,
-            };
-            axios.post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload).then((response)=>{
-                let token = response.data.token
-                window.localStorage.setItem("token", token)
-                console.log(token);
-                this.$router.push({name: 'cadastroContexto'});
-            })
-            .catch(function(error){
-              console.log(error);
-              alert("E-mail ou senha incorretos");
-            });
-            e.preventDefault();
-        },
-    },
+  template: "#login",
+  data() {
+    return {
+      email: "",
+      senha: "",
+      tipo: ""
+    };
+  },
+  methods: {
+    checkform: function(e) {
+      let payload = {
+        email: this.email,
+        senha: this.senha
+      };
+      axios
+        .post("https://app.sisalfa.dcx.ufpb.br/letreca/v1/login", payload)
+        .then(response => {
+          axios
+          .get("https://app.sisalfa.dcx.ufpb.br/letreca/v1/usuarios")
+          .then(response2 => {
+            console.log(response2.data[0].especial);
+            if (response2.data[0].especial == 1) {
+            alert(
+              "Usuário não tem permissão, entre em contato com administrador do site."
+            );
+          } else if (response2.data[0].especial == 2) {
+            let token = response.data.token;
+            window.localStorage.setItem("token", token);
+            console.log(token);
+            this.$router.push({ name: "cadastroContexto" });
+          }
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        })
+        .catch(function(error) {
+          console.log(error);
+          alert("E-mail ou senha incorretos");
+        });
+      e.preventDefault();
+    }
+  }
 
-    /*methods:{
+  /*methods:{
     cadastroClick: () => {
         router.push({name: '/cadastroContexto'})
         }
@@ -113,7 +143,6 @@ export default {
   position: relative;
   width: 75%;
   left: -3%;
-  
 }
 
 .container6 {
@@ -191,7 +220,7 @@ export default {
   width: 75%;
   height: 10% !important;
   margin-top: 0.8rem;
-  border:none;
+  border: none;
   background-color: rgba(155, 155, 155, 0.2);
 }
 
@@ -383,7 +412,7 @@ input[type="file"] {
   top: 0.5rem;
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   font-family: "Fjalla One", sans-serif;
   font-size: 22px;
   color: #fff;
@@ -411,7 +440,7 @@ input[type="file"] {
 .control .file + label:hover:after {
   opacity: 1;
   -webkit-transform: translateX(-30px);
-          transform: translateX(-30px);
+  transform: translateX(-30px);
 }
 .control .file + label span {
   font-size: 12px;
@@ -423,32 +452,36 @@ input[type="file"] {
   color: #000;
 }
 
-.btn_login{
+.btn_login {
   margin-top: 1.5rem;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   text-align: center;
 }
-::-moz-placeholder { /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   text-align: center;
 }
-:-ms-input-placeholder { /* IE 10+ */
+:-ms-input-placeholder {
+  /* IE 10+ */
   text-align: center;
 }
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;
-}
-
-input[type=text]{
-  text-align: center;
-}
-
-input[type=password]{
+:-moz-placeholder {
+  /* Firefox 18- */
   text-align: center;
 }
 
-input[type=email]{
+input[type="text"] {
+  text-align: center;
+}
+
+input[type="password"] {
+  text-align: center;
+}
+
+input[type="email"] {
   text-align: center;
 }
 
@@ -465,8 +498,8 @@ input[type=email]{
 }
 
 @media (min-width: 768px) {
-  .container{
-      max-width: 768px !important;
+  .container {
+    max-width: 768px !important;
   }
 }
 </style>
