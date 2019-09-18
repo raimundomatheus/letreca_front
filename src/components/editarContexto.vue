@@ -99,27 +99,27 @@ export default {
       });
   },
 
-  updated: function(l, a) {
-    let cat = this.$route.params.id;
-    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
-    if (cat !== undefined) {
-      url += cat;
-    }
+  // updated: function(l, a) {
+  //   let cat = this.$route.params.id;
+  //   let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
+  //   if (cat !== undefined) {
+  //     url += cat;
+  //   }
 
-    axios
-      .get(url)
-      .then(response => {
-        console.log(response.data.length);
-        for(var i = 0; i < response.data.length; i++){
-        	console.log(response.data);
-        	return this.contextos = response.data;
-        }
+  //   axios
+  //     .get(url)
+  //     .then(response => {
+  //       console.log(response.data.length);
+  //       for(var i = 0; i < response.data.length; i++){
+  //       	console.log(response.data);
+  //       	return this.contextos = response.data;
+  //       }
         
-      })
-      .catch(e => {
-        console.log("erro");
-      });
-  },
+  //     })
+  //     .catch(e => {
+  //       console.log("erro");
+  //     });
+  // },
 
   methods: {
     checkform: function(e) {

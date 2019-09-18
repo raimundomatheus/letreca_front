@@ -1,45 +1,51 @@
 <template id="contextos">
   <!--eslint-disable-->
 
-<div class="container">
-  <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
-  <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
-  <a class="btn btn-voltar-contexto" href="" role="button" placeholder="Digite o nome do contexto"></a> -->
+  <div class="container">
+    <!-- <img src="../imagens/fundo.jpg" class="img-fluid im" alt="Imagem responsiva"> -->
+    <!-- <img src="../imagens/sele-contexto.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
+    <a class="btn btn-voltar-contexto" href="" role="button" placeholder="Digite o nome do contexto"></a>-->
 
-  <div class="container2-contexto">
-    <div class="row">
-      <div class="col-sm">
-        <a class="btn btn-voltar-contexto" href="/#/" role="button" placeholder="Digite o nome do contexto"></a>
-        <img src="../_imagens/letreca/lista-contextos.jpg" class="img-fluid cadimg-contexto" alt="Imagem responsiva">
-      </div>
-    </div> 
-  </div>
-
-  <div class="scroll">
-    <div class="container-list3">
+    <div class="container2-contexto">
       <div class="row">
-        <div class="col-auto" v-for="contexto in contextos" :key="contexto.id">
-          <div class="card itens" style="width: 10rem;">
-            <a href="#" @click="()=>ver(contexto.id)">
-            <img v-bind:src="contexto.imagem" class="card-img-top" alt="Imagem de capa do card"> 
-            </a>
-            <div class="card-body body">
-              <h5 class="card-title text" style="text-align: center;">{{contexto.nome}}</h5> 
+        <div class="col-sm">
+          <a
+            class="btn btn-voltar-contexto"
+            href="/#/"
+            role="button"
+            placeholder="Digite o nome do contexto"
+          ></a>
+          <img
+            src="../_imagens/letreca/lista-contextos.jpg"
+            class="img-fluid cadimg-contexto"
+            alt="Imagem responsiva"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <div class="container-list3">
+        <div class="row">
+          <div class="col-auto" v-for="contexto in contextos" :key="contexto.id">
+            <div class="card itens" style="width: 10rem;">
+              <a href="#" @click="()=>ver(contexto.id)">
+                <img v-bind:src="contexto.imagem" class="card-img-top" alt="Imagem de capa do card" />
+              </a>
+              <div class="card-body body">
+                <h5 class="card-title text" style="text-align: center;">{{contexto.nome}}</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <a href="/#/cadastroContexto">Cadastrar contexto</a>
   </div>
 
-
-  <a href="/#/cadastroContexto">Cadastrar contexto</a>
-</div>
-
-
- <!--  
+  <!--  
   -->
-
 </template>
 
 <script>
@@ -74,23 +80,27 @@ export default {
       });
   },
 
-  updated: function(l, a) {
-    let cat = this.$route.params.id;
-    let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
-    if (cat !== undefined) {
-      url += cat;
-    }
+  // updated: function(l, a) {
 
-    axios
-      .get(url)
-      .then(response => {
-        console.log(response.data);
-        this.contextos = response.data;
-      })
-      .catch(e => {
-        console.log("erro");
-      });
-  },
+  //   this.$nextTick(function () {
+  //     let cat = this.$route.params.id;
+  //     let url = "https://app.sisalfa.dcx.ufpb.br/letreca/v1/contextos/";
+  //     if (cat !== undefined) {
+  //       url += cat;
+  //     }
+
+  //     axios
+  //       .get(url)
+  //       .then(response => {
+  //         console.log(response.data);
+  //         this.contextos = response.data;
+  //       })
+  //       .catch(e => {
+  //         console.log("erro");
+  //       });
+    
+  //   })
+  // },  
 
   methods: {
     checkform: function(e) {
@@ -122,19 +132,18 @@ export default {
 <style>
 /* eslint-disable */
 
-.container{
-	/*background-image: url("../imagens/telaPrincipal.png");*/
-	background-position: center;
-    background-repeat: no-repeat;
-	position: relative;
-	border: 2px solid;
-	border-color: #A8D500;
-	border-radius: 1%;
-	box-shadow: 5px 5px;
-	background-color: #A8D500;
+.container {
+  /*background-image: url("../imagens/telaPrincipal.png");*/
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border: 2px solid;
+  border-color: #a8d500;
+  border-radius: 1%;
+  box-shadow: 5px 5px;
+  background-color: #a8d500;
   height: 650px;
 }
-
 
 /*.cadimg-contexto{
 	position: absolute;
@@ -142,23 +151,23 @@ export default {
 	top: 0%;
 	left: 0%;
 }*/
-.cadimg-contexto{
-	position: relative;
-	width: 75%;
-	left: -3%;
+.cadimg-contexto {
+  position: relative;
+  width: 75%;
+  left: -3%;
 }
 
-.container-list3{
-	position: relative;
-	background-color: none;
-	padding-left: 10%;
-	padding-bottom: 2.5%;
-	height: 500px;
+.container-list3 {
+  position: relative;
+  background-color: none;
+  padding-left: 10%;
+  padding-bottom: 2.5%;
+  height: 500px;
 }
 
-.scroll{
-	overflow-x: hidden;
-	overflow-y: auto;
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /*.btn-voltar-contexto{
@@ -174,51 +183,50 @@ export default {
 	width: 8%;
 }
 */
-.btn-voltar-contexto{
-	background-image: url(../_imagens/letreca/return.png);
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-	position: relative;
-	width: 7%;
-	height: 3rem;
-	z-index: 2;
+.btn-voltar-contexto {
+  background-image: url(../_imagens/letreca/return.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+  width: 7%;
+  height: 3rem;
+  z-index: 2;
   left: -8%;
 }
 
-.lista{
-	background-color: red;
-	position: absolute;
-	top: 20%;
+.lista {
+  background-color: red;
+  position: absolute;
+  top: 20%;
 }
 
-.img-1{
-	height: 40%;
-	width: 30%;
+.img-1 {
+  height: 40%;
+  width: 30%;
 }
 
-.itens{
-	margin-top: 5%;
+.itens {
+  margin-top: 5%;
 }
 
 /*.body{
 	height: 4rem;
 }*/
 
-.body{
-	margin-top: -5%;
-	margin-bottom: -5%;
+.body {
+  margin-top: -5%;
+  margin-bottom: -5%;
 }
 
-
-.text{
-	font-size: 1.0rem;
+.text {
+  font-size: 1rem;
 }
 
 @media (min-width: 700px) {
-    .container{
-        max-width: 700px !important;
-    }
+  .container {
+    max-width: 700px !important;
+  }
 }
 
 @media (min-width: 576px) {
@@ -226,6 +234,4 @@ export default {
     max-width: 700px !important;
   }
 }
-
-
 </style>
